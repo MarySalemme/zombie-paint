@@ -10,21 +10,28 @@
   <canvas id='canvas'>
   </canvas>
 
-  <div id="mocha"></div>
+  <script type="text/javascript" src="./app/canvasEvents.js"></script>
+
+
+    <div id="mocha"></div>
+
     <script src="./canteen/canteen.min.js"></script>
     <script src="./node_modules/mocha/mocha.js"></script>
     <script src="./node_modules/chai/chai.js"></script>
+
     <script>mocha.setup('bdd')</script>
 
-    <!-- load code you want to test here -->
-    <script type="text/javascript" src="./app/canvas.js"></script>
-
-    <!-- load your test files here -->
+  <!--   load code you want to test here -->
+      <script type="text/javascript" src="./app/canvas.js"></script>
+        <script type="text/javascript" src="./app/canvasEvents.js"></script>
+<!--  load your test files here -->
     <script type="text/javascript" src="./test/canvas.js"></script>
+      <script type="text/javascript" src="./test/canvasEvents.js"></script>
 
     <script>
       mocha.run();
     </script>
+
   </body>
 </body>
 </html>
