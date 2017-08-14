@@ -1,0 +1,25 @@
+{
+  "name": "long-live-paint",
+  "version": "1.0.0",
+  "description": "A Microsoft Paint clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarySalemme/long-live-paint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarySalemme/long-live-paint/issues"
+  },
+  "homepage": "https://github.com/MarySalemme/long-live-paint#readme",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "express": "^4.15.4",
+    "mocha": "^3.5.0",
+    "request": "^2.81.0"
+  }
+}
