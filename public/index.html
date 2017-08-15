@@ -4,22 +4,41 @@
   <meta charset="utf-8">
   <title>Long Live Paint!</title>
   <link rel= "stylesheet" href="css/style.css"/>
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
 </head>
 <body>
   <canvas id='canvas'></canvas>
 
-<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+  <div id="mocha"></div>
+
+  <script src="../test/canteen.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+
+  <script>mocha.setup('bdd')</script>
+
+  <script type="text/javascript" src="./app/src/canvas.js"></script>
+  <script type="text/javascript" src="../test/canvas.js"></script>
+
+
+  <script>
+  mocha.run();
+  </script>
+
+</head>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyD6PJNgezyr39rR9LY1PklPcxre1ODEibc",
-    authDomain: "zombie-paint.firebaseapp.com",
-    databaseURL: "https://zombie-paint.firebaseio.com",
-    projectId: "zombie-paint",
-    storageBucket: "zombie-paint.appspot.com",
-    messagingSenderId: "622250283439"
-  };
-  firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD6PJNgezyr39rR9LY1PklPcxre1ODEibc",
+  authDomain: "zombie-paint.firebaseapp.com",
+  databaseURL: "https://zombie-paint.firebaseio.com",
+  projectId: "zombie-paint",
+  storageBucket: "zombie-paint.appspot.com",
+  messagingSenderId: "622250283439"
+};
+firebase.initializeApp(config);
 </script>
 </body>
 </html>
