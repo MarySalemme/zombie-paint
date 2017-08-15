@@ -1,4 +1,4 @@
-# long-live-paint
+# Zombie Paint
 
 ## User Stories ##
 
