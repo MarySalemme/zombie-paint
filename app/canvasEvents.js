@@ -1,7 +1,7 @@
 
 
 //  We need to listen for these events rather than define them
-// on the canvas. 
+// on the canvas.
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
