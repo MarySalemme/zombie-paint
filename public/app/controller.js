@@ -1,13 +1,13 @@
 (function(exports) {
-  function Controller(canvas = new Canvas()) {
-    this.canvas = canvas;
+  function Controller(element) {
+    this.canvas = new Canvas(element);
   };
 
   Controller.prototype.inputListener = function(jQuery, document) {
     var self = this
     jQuery(document).ready(function(){
-      jQuery('#canvas').on('', function() {
-
+      jQuery('#canvas').on('click', function() {
+        self.canvas.drawRect();
       });
     });
   };

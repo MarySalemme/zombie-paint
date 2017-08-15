@@ -1,4 +1,5 @@
 window.onload = function() {
-  var controller = new Controller();
+  element = document.getElementById('canvas');
+  var controller = new Controller(element);
   controller.inputListener($, document);
 };
