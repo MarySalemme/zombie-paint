@@ -1,7 +1,8 @@
 function Canvas(element) {
   this.element = element;
-  this.height = 100;
-  this.width = 200;
+  console.log(this.element)
+  this.height = this.element.height;
+  this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
   this.xAxis = [];
@@ -11,6 +12,13 @@ function Canvas(element) {
 Canvas.prototype.isDrawing = function () {
   return this._drawing
 };
+
+// Canvas.prototype.setSize = function () {
+//   this.element.attr({
+//     width: window.innerWidth,
+//     height: window.innerHeight
+//   });
+// };
 
 Canvas.prototype.startDrawing = function () {
   this._drawing = true;
