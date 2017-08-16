@@ -20,7 +20,7 @@ Canvas.prototype.endDrawing = function () {
   this._drawing = false;
 };
 
-Canvas.prototype.createDot = function (x, y) {
+Canvas.prototype.addCoordinates = function (x, y) {
   this.xAxis.push(x);
   this.yAxis.push(y);
 };

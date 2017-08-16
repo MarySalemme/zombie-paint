@@ -59,12 +59,12 @@ describe ('Canvas', function() {
 
   describe('#createDot', function() {
     it("creates an x-coordinate", function() {
-      customCanvas.createDot(10, 50);
+      customCanvas.addCoordinates(10, 50);
       expect(customCanvas.xAxis[0]).to.equal(10);
     });
 
     it("creates a y-coordinate", function() {
-      customCanvas.createDot(10, 50);
+      customCanvas.addCoordinates(10, 50);
       expect(customCanvas.yAxis[0]).to.equal(50);
     });
   });
