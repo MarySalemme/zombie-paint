@@ -26,7 +26,8 @@ Canvas.prototype.addCoordinates = function (x, y) {
 };
 
 Canvas.prototype.createDot = function (e) {
+  console.log(e)
   this.ctx.beginPath();
-  this.ctx.arc(e.clientX, e.clientY, 5, 0, Math.PI*2);
+  this.ctx.arc(e.clientX, e.clientY, 10, 0*Math.PI, Math.PI*2);
   this.ctx.fill();
 };

@@ -6,5 +6,7 @@ window.onload = function() {
   });
   element = document.getElementById('canvas');
   var controller = new Controller(element);
-  controller.inputListener(element);
+  element.addEventListener('mousedown', function(e) {
+    controller.canvas.createDot(e);
+  })
 };
