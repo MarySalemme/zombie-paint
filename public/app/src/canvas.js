@@ -32,6 +32,7 @@ Canvas.prototype.addCoordinates = function (x, y) {
   this.xAxis.push(x);
   this.yAxis.push(y);
 };
+
 // Canvas.prototype.drawRect = function() {
 //   this.ctx.fillRect(10, 10, 100, 200)
 // }
