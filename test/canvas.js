@@ -15,13 +15,13 @@ describe ('Canvas', function() {
 
   describe ('height', function() {
     it('has a height', function() {
-      expect(customCanvas.height).to.equal(100);
+      expect(customCanvas.height).to.equal(150);
     });
   });
 
   describe ('width', function() {
     it('has a width', function() {
-      expect(customCanvas.width).to.equal(200);
+      expect(customCanvas.width).to.equal(300);
     });
   });
 
@@ -68,12 +68,19 @@ describe ('Canvas', function() {
       expect(customCanvas.yAxis[0]).to.equal(50);
     });
   });
-  // describe ('drawRect', function() {
-  //   customCanvas.drawRect();
-  //   stack = JSON.parse(ctx.json());
-  //   console.log(stack);
-  //   it('can draw a rectangle', function() {
-  //     expect(stack[0].method).to.equal('fillRect')
-  //   })
-  // })
+
+  beforeEach(function() {
+    customCanvas.createDot(10, 50);
+    stack = JSON.parse(ctx.json());
+  })
+
+  describe('#createDot', function() {
+    it("creates an arc on the canvas", function() {
+      expect(stack[1].method).to.equal('arc');
+    });
+
+    it("fills the arc on the canvas", function() {
+      expect(stack[2].method).to.equal('fill');
+    });
+  });
 });
