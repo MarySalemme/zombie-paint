@@ -3,19 +3,9 @@
     this.canvas = new Canvas(element);
   };
 
-  Controller.prototype.inputListener = function(jQuery, document) {
-    var self = this
-
-    // jQuery(document).ready(function(){
-    //   jQuery('#canvas').on('click', function() {
-    //     self.canvas.drawRect();
-    //   });
-
-    $('canvas').on('mousedown', function(event){
-       self.canvas.startDrawing();
-       self.canvas.addCoordinates(event.pageX, event.pageY)
-    });
-
+  Controller.prototype.inputListener = function(element) {
+    e = window.event || e;
+    element.addEventListener('mousedown', this.canvas.createDot(e));
   };
 
   exports.Controller = Controller;
