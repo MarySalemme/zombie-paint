@@ -25,12 +25,31 @@ describe ('Canvas', function() {
     })
   })
 
-  describe ('drawRect', function() {
-    customCanvas.drawRect();
-    stack = JSON.parse(ctx.json());
-    console.log(stack);
-    it('can draw a rectangle', function() {
-      expect(stack[0].method).to.equal('fillRect')
-    })
-  })
+  describe('isDrawing', function() {
+    it("has an initial value of false", function () {
+      expect(customCanvas.isDrawing).to.equal(false)
+    });
+  });
+
+  describe('xAxis', function() {
+    it("starts as an empty array", function () {
+      expect(customCanvas.xAxis).to.be.empty
+    });
+  });
+
+  describe('yAxis', function() {
+    it("starts as an empty array", function () {
+      expect(customCanvas.yAxis).to.be.empty
+    });
+  });
+
+  
+  // describe ('drawRect', function() {
+  //   customCanvas.drawRect();
+  //   stack = JSON.parse(ctx.json());
+  //   console.log(stack);
+  //   it('can draw a rectangle', function() {
+  //     expect(stack[0].method).to.equal('fillRect')
+  //   })
+  // })
 });
