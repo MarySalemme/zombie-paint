@@ -69,16 +69,17 @@ describe ('Canvas', function() {
     });
   });
 
+  beforeEach(function() {
+    customCanvas.createDot(10, 50);
+    stack = JSON.parse(ctx.json());
+  })
+
   describe('#createDot', function() {
     it("creates an arc on the canvas", function() {
-      customCanvas.createDot(10, 50);
-      stack = JSON.parse(ctx.json());
       expect(stack[1].method).to.equal('arc');
     });
 
     it("fills the arc on the canvas", function() {
-      customCanvas.createDot(10, 50);
-      stack = JSON.parse(ctx.json());
       expect(stack[2].method).to.equal('fill');
     });
   });
