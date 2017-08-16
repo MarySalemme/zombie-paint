@@ -57,7 +57,7 @@ describe ('Canvas', function() {
     });
   });
 
-  describe('#createDot', function() {
+  describe('#addCoordinates', function() {
     it("creates an x-coordinate", function() {
       customCanvas.addCoordinates(10, 50);
       expect(customCanvas.xAxis[0]).to.equal(10);
