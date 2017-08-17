@@ -37,5 +37,4 @@ Canvas.prototype.drawLine = function (e) {
   this.ctx.stroke();
   this.ctx.beginPath();
   this.ctx.moveTo(e.clientX, e.clientY);
-  console.log("hello");
 };

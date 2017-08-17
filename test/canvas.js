@@ -72,41 +72,32 @@ describe ('Canvas', function() {
   });
 
 
-  describe('#createDot', function() {
-
-    beforeEach(function() {
-      customCanvas.createDot(10, 50);
-      stack = JSON.parse(ctx.json());
-    })
-
-    it("creates an arc on the canvas", function() {
-      expect(stack[1].method).to.equal('arc');
-    });
-
-    it("fills the arc on the canvas", function() {
-      expect(stack[2].method).to.equal('fill');
-    });
-  });
-
-
-  describe('#drawLine', function () {
-
     beforeEach(function() {
       mockEvent = { clientX: 10, clientY: 20 }
       customCanvas.drawLine(mockEvent);
       stack = JSON.parse(ctx.json());
     });
+
+  describe('#drawLine', function () {
+
     it('adds point and creates a line to point', function () {
-      console.log(stack);
-      expect(stack[6].method).to.equal('lineTo');
+      expect(stack[0].method).to.equal('lineTo');
     });
 
     it('draws a line on the canvas', function () {
-      expect(stack[7].method).to.equal('stroke');
+      expect(stack[1].method).to.equal('stroke');
+    });
+
+    it('starts the path', function () {
+      expect(stack[2].method).to.equal('beginPath');
     });
 
     it('moves path to specified point', function () {
-      expect(stack[9].method).to.equal('moveTo');
+      expect(stack[3].method).to.equal('moveTo');
     });
+
   });
+     afterEach(function() {
+      ctx.clear();
+    })
 });
