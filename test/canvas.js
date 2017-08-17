@@ -9,6 +9,8 @@ describe ('Canvas', function() {
 
   describe ('element', function() {
     it('contains canvas element', function() {
+      console.log(canvas)
+      console.log(customCanvas.element)
       expect(customCanvas.element).to.equal(canvas);
     });
   });
