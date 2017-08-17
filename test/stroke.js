@@ -47,4 +47,11 @@ describe('Stroke', function() {
       expect(stroke.currentColour).to.equal('#ff0000');
     });
   });
+
+  describe('#getColour', function() {
+    it("return the current stroke colour", function() {
+      stroke.changeColour(stroke.red);
+      expect(stroke.getColour()).to.equal('#ff0000');
+    });
+  });
 });

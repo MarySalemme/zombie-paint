@@ -1,10 +1,10 @@
 describe ('Canvas', function() {
 
-  mockElement = {}
+  mockStroke = { getColour: () => '#ff0000' }
   var expect = chai.expect;
 
   canvas = document.getElementById('canvas');
-  customCanvas = new Canvas(canvas);
+  customCanvas = new Canvas(canvas, mockStroke);
   ctx = customCanvas.ctx
 
   describe ('element', function() {
@@ -69,18 +69,26 @@ describe ('Canvas', function() {
     });
   });
 
-  beforeEach(function() {
-    customCanvas.createDot(10, 50);
-    stack = JSON.parse(ctx.json());
-  })
+  describe('#getStroke', function() {
+    it("returns the stroke object", function() {
+      expect(customCanvas.getStroke()).to.equal(customCanvas._stroke);
+    });
+  });
+
 
   describe('#createDot', function() {
+
+      beforeEach(function() {
+        customCanvas.createDot(10, 50);
+        stack = JSON.parse(ctx.json());
+      })
+
     it("creates an arc on the canvas", function() {
       expect(stack[1].method).to.equal('arc');
     });
 
     it("fills the arc on the canvas", function() {
-      expect(stack[2].method).to.equal('fill');
+      expect(stack[3].method).to.equal('fill');
     });
   });
 });

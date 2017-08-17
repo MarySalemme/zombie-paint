@@ -2,13 +2,11 @@
 <head>
   <meta charset="utf-8">
   <title>Long Live Paint!</title>
-<style>
-#canvas {
-  border: 1px solid black;
-}
-</style>
+  <link href="./css/index.css" rel="stylesheet" />
 </head>
 <body>
+  <div id="palette"> <button class="colours" id='#ff0000'> </button>  <button class="colours" id='#0000ff'> </button>  <button class="colours" id='#008000'> </button> </div>
+  <canvas id='canvas'></canvas>
   <canvas id='canvas'>
   </canvas>
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
@@ -26,6 +24,7 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./index.js"></script>
+  <script src="./app/src/stroke.js"></script>
   <script src="./app/src/canvas.js"></script>
   <script src="./app/controller.js"></script>
 

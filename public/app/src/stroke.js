@@ -13,3 +13,7 @@ Stroke.prototype.changeSize = function(size) {
 Stroke.prototype.changeColour = function(colour) {
   this.currentColour = colour;
 };
+
+Stroke.prototype.getColour = function() {
+  return this.currentColour;
+};

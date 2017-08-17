@@ -1,5 +1,6 @@
-function Canvas(element) {
+function Canvas(element, stroke) {
   this.element = element;
+  this._stroke = stroke
   this.height = this.element.height;
   this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
@@ -25,8 +26,13 @@ Canvas.prototype.addCoordinates = function (x, y) {
   this.yAxis.push(y);
 };
 
+Canvas.prototype.getStroke = function () {
+  return this._stroke;
+};
+
 Canvas.prototype.createDot = function (e) {
   this.ctx.beginPath();
   this.ctx.arc(e.clientX, e.clientY, 10, 0*Math.PI, Math.PI*2);
+  this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.fill();
 };
