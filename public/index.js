@@ -1,13 +1,11 @@
-
-
 function onDomReady(window, fn) {
   window.onload = fn;
-}
+};
 
 function setUpController(document, Controller) {
   htmlCanvas = document.getElementById('canvas')
   var controller = new Controller(htmlCanvas);
-}
+};
 
 function setCanvasSize(document, $) {
   htmlCanvas = document.getElementById('canvas')
@@ -15,10 +13,10 @@ function setCanvasSize(document, $) {
     width: window.innerWidth,
     height:window.innerHeight
   });
-}
+};
 
 // function setInputListeners(element = extractCanvasElement(document), controller = setUpController()) {
-//   element.on('mousemove', function(e) { 
+//   element.on('mousemove', function(e) {
 //     controller.canvas.startDrawing();
 
 //       element.on('mousemove', function(e) {
@@ -40,9 +38,9 @@ function setCanvasSize(document, $) {
 function pageElementSetup(document, Controller) {
   setUpController(document, Controller);
   setCanvasSize(document, $);
-}
+};
 
-onDomReady(window, pageElementSetup(document, Controller, $))
+onDomReady(window, pageElementSetup(document, Controller, $));
 
 
 
