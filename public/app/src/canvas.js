@@ -18,6 +18,7 @@ Canvas.prototype.startDrawing = function () {
 
 Canvas.prototype.endDrawing = function () {
   this._drawing = false;
+  this.ctx.beginPath();
 };
 
 Canvas.prototype.addCoordinates = function (x, y) {
@@ -29,4 +30,11 @@ Canvas.prototype.createDot = function (e) {
   this.ctx.beginPath();
   this.ctx.arc(e.clientX, e.clientY, 10, 0*Math.PI, Math.PI*2);
   this.ctx.fill();
+};
+
+Canvas.prototype.drawLine = function (e) {
+  this.ctx.lineTo(e.clientX, e.clientY);
+  this.ctx.stroke();
+  this.ctx.beginPath();
+  this.ctx.moveTo(e.clientX, e.clientY);
 };
