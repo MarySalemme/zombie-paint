@@ -1,23 +1,24 @@
 describe ('Controller', function () {
 
-mockElement = document.createElement('canvas');
-mockElement.id = 'canvas';
-mockCanvas = {element: mockElement}
-var expect = chai.expect;
-ctx = mockElement.getContext('2d');
+  var expect = chai.expect;
 
-// controller = new Controller(mockCanvas);
+  mockElement = { mousedown: chai.spy() };
+  mockJQuery = function() { return mockElement };
+  mockCanvas = { startDrawing: chai.spy() };
+  controller = new Controller(mockJQuery, mockCanvas);
 
-describe ('setMouseDownListener', function () {
-  it ('changes the value of start drawing', function () {
-    var mousedown = jQuery.Event('mousedown', { pageX: 20, pageY: 40 });
-    controller.setMouseDownListener();
-    $('#canvas').trigger(mousedown);
-    // stack = JSON.parse(ctx.json());
-    expect(controller.canvas.isDrawing()).to.equal(true);
+  describe ('setMouseDownListener', function () {
+    it ('binds a handler for the mouse going down', function () {
+      controller.setMouseDownListener();
+      expect(mockElement.mousedown).to.have.been.called();
+    });
+  });
 
-  })
-
-})
+  describe('setMouseMoveListener', function() {
+    it('binds a handler for the mouse moving', function () {
+      controller.setMouseMoveListener();
+      expect(mockElement.mouseLeave).to.have.been.called();
+    });
+  });
 
 })

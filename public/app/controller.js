@@ -1,17 +1,19 @@
 (function(exports) {
-  function Controller(canvas = new Canvas(element)) {
-    this.canvas = canvas;
-    this.htmlElement = this.canvas.element;
+  function Controller($, canvasDrawer = new Canvas(element)) {
+    this.$ = $;
+    this.canvasDrawer = canvasDrawer;
+    this.htmlElement = this.canvasDrawer.element;
   };
 
   Controller.prototype.setMouseDownListener = function () {
-    console.log(element);
-    this.htmlElement.on('mousedown', function (e) {
-      this.canvas.startDrawing();
-    })
+    this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing())
   };
 
-
+  Controller.prototype.setMouseMoveListener = function () {
+    if (this.canvasDrawer.isDrawing()) {
+      this.$(this.htmlElement).mousemove(this.canvasDrawer.drawLine(e))
+    }
+  };
 
   // function setInputListeners(element = extractCanvasElement(document), controller = setUpController()) {
   //   element.on('mousemove', function(e) {
