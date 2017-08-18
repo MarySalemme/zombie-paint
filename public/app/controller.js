@@ -9,7 +9,7 @@
     this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing())
   };
 
-  Controller.prototype.setMouseMoveListener = function () {
+  Controller.prototype.setMouseMoveListener = function (e) {
     if (this.canvasDrawer.isDrawing()) {
       this.$(this.htmlElement).mousemove(this.canvasDrawer.drawLine(e))
     }
