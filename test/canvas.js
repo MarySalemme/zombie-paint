@@ -86,8 +86,10 @@ describe ('Canvas', function() {
 
     it("moves the head of the line", function() {
       expect(stack[4].method).to.equal('moveTo');
-      
+
     });
+
+  });
 
 
 });
