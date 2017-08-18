@@ -9,23 +9,9 @@ describe ('Canvas', function() {
 
   describe ('element', function() {
     it('contains canvas element', function() {
-      console.log(canvas)
-      console.log(customCanvas.element)
       expect(customCanvas.element).to.equal(canvas);
     });
   });
-
-  // describe ('height', function() {
-  //   it('has a height', function() {
-  //     expect(customCanvas.height).to.equal(150);
-  //   });
-  // });
-  //
-  // describe ('width', function() {
-  //   it('has a width', function() {
-  //     expect(customCanvas.width).to.equal(300);
-  //   });
-  // });
 
   describe('xAxis', function() {
     it("starts as an empty array", function () {
