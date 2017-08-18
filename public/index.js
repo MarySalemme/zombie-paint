@@ -1,19 +1,27 @@
+
 function onDomReady(window, fn) {
   window.onload = fn;
-};
+}
 
-function setUpController(document, Controller) {
-  htmlCanvas = document.getElementById('canvas')
-  var controller = new Controller(htmlCanvas);
-};
+function getCanvasElement(document) {
+  return htmlCanvas = document.getElementById('canvas')
+}
 
-function setCanvasSize(document, $) {
-  htmlCanvas = document.getElementById('canvas')
-  $('#canvas').attr({
-    width: window.innerWidth,
-    height:window.innerHeight
-  });
-};
+function buildCanvas(canvas = new Canvas(getCanvasElement(document))) {
+  return canvas = canvas
+}
+
+function setUpController(controller = new Controller(buildCanvas(document))) {
+  var controller = controller;
+}
+
+// function setCanvasSize(document, $) {
+//   htmlCanvas = document.getElementById('canvas')
+//   $('#canvas').attr({
+//     width: window.innerWidth,
+//     height:window.innerHeight
+//   });
+// }
 
 // function setInputListeners(element = extractCanvasElement(document), controller = setUpController()) {
 //   element.on('mousemove', function(e) {
@@ -35,23 +43,20 @@ function setCanvasSize(document, $) {
 //   })
 // }
 
-function pageElementSetup(document, Controller) {
-  setUpController(document, Controller);
-  setCanvasSize(document, $);
-};
+// function pageElementSetup(document, Controller) {
+//   getCanvasElement(document)
+//   buildCanvas(document)
+//   setUpController(document);
+//   setCanvasSize(document, $);
+// }
 
-onDomReady(window, pageElementSetup(document, Controller, $));
+// onDomReady(window, pageElementSetup(document, Controller, $))
 
 
 
 
-// window.onload = function(s) {
-//   $('canvas').attr({
-//     width: window.innerWidth,
-//     height: window.innerHeight
-//   });
-//   element = document.getElementById('canvas');
-//   controller = new Controller(element);
+
+
 
 //   $('canvas').on('mousedown', function(e) {
 //     controller.canvas.startDrawing();
