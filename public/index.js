@@ -1,21 +1,25 @@
 
-window.onload = function() {
-  $('canvas').attr({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
+function onDomReady(window, fn) {
+  window.onload = fn;
+}
 
-  var element = document.getElementById('canvas');
-  var stroke = new Stroke();
-  controller = new Controller(element, stroke);
+function getCanvasElement(document) {
+  return htmlCanvas = document.getElementById('canvas')
+}
 
-  $('.colours').on('click', function(){
-    var colorCode = $(this).attr('id')
-    controller.canvas.getStroke().changeColour(colorCode)
-  });
+function buildCanvas(canvas = new Canvas(getCanvasElement(document))) {
+  return canvas = canvas
+}
 
-  element.addEventListener('mousedown', function(e) {
-    controller.canvas.createDot(e);
-  })
+function setUpController(controller = new Controller(buildCanvas())) {
+  return controller = controller;
+}
 
-};
+function pageElementSetup(document) {
+  getCanvasElement(document)
+  buildCanvas(document)
+  setUpController(document);
+}
+
+onDomReady(window, pageElementSetup(document))
+

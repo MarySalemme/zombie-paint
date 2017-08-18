@@ -1,6 +1,6 @@
 (function(exports) {
-  function Controller(element, stroke) {
-    this.canvas = new Canvas(element, stroke);
+  function Controller(canvas = new Canvas) {
+    this.canvas = canvas;
   };
 
   exports.Controller = Controller;

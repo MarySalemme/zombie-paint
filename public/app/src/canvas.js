@@ -19,7 +19,7 @@ Canvas.prototype.startDrawing = function () {
 
 Canvas.prototype.endDrawing = function () {
   this._drawing = false;
-  this.ctx.beginPath()
+  this.ctx.beginPath();
 };
 
 Canvas.prototype.addCoordinates = function (x, y) {
