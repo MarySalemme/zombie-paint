@@ -7,10 +7,8 @@ var expect = chai.expect;
     mockWindow = { onload: null };
     mockCanvasElement = 'canvas'
     mockDocument = { getElementById: () => mockCanvasElement};
-    mockJquery = {};
     mockCanvasModel = "the canvas"
     mockControllerModel = "the model"
-    mock$ = { attr: () => chai.spy() };
 
     describe('#onDomReady', function() {
         it("loads passed function on load", function() {
@@ -27,7 +25,6 @@ var expect = chai.expect;
         })
     })
 
-    //is this too basic?
     describe('#buildCanvas', function() {
         it('sets up a new canvas', function() {
             expect(buildCanvas(mockCanvasModel)).to.equal(mockCanvasModel)
@@ -38,19 +35,6 @@ var expect = chai.expect;
         it('instantiates a new controller with a canvas', function() {
             expect(setUpController(mockControllerModel)).to.equal(mockControllerModel)
         })
-    })
-
-    describe('#setCanvasSize', function() {
-        it('calls get element by id on document', function() {
-            let spy = chai.spy.on(mockDocument, 'getElementById');
-            getCanvasElement(mockDocument)
-            expect(spy).to.have.been.called()
-        })
-
-        // it('adds a height and width to the canvas', function() {
-        //     setCanvasSize(mockDocument, mock$)
-        //     expect(mock$.attr).to.have.been.called 
-        // })
     })
 
     describe('#pageElementSetup', function() {
