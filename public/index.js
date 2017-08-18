@@ -22,3 +22,4 @@ function pageElementSetup(document) {
 }
 
 onDomReady(window, pageElementSetup(document))
+

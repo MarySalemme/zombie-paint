@@ -1,10 +1,10 @@
 describe ('Canvas', function() {
 
-  mockElement = {}
+  mockStroke = { getColour: () => '#ff0000' }
   var expect = chai.expect;
 
   canvas = document.getElementById('canvas');
-  customCanvas = new Canvas(canvas);
+  customCanvas = new Canvas(canvas, mockStroke);
   ctx = customCanvas.ctx
 
   describe ('element', function() {
@@ -57,33 +57,37 @@ describe ('Canvas', function() {
     });
   });
 
-
-    beforeEach(function() {
-      mockEvent = { clientX: 10, clientY: 20 }
-      customCanvas.drawLine(mockEvent);
-      stack = JSON.parse(ctx.json());
+  describe('#getStroke', function() {
+    it("returns the stroke object", function() {
+      expect(customCanvas.getStroke()).to.equal(customCanvas._stroke);
     });
-
-  describe('#drawLine', function () {
-
-    it('adds point and creates a line to point', function () {
-      expect(stack[0].method).to.equal('lineTo');
-    });
-
-    it('draws a line on the canvas', function () {
-      expect(stack[1].method).to.equal('stroke');
-    });
-
-    it('starts the path', function () {
-      expect(stack[2].method).to.equal('beginPath');
-    });
-
-    it('moves path to specified point', function () {
-      expect(stack[3].method).to.equal('moveTo');
-    });
-
   });
-     afterEach(function() {
-      ctx.clear();
+
+  describe('#drawLine', function() {
+
+      beforeEach(function() {
+        ctx.clear();
+        mockEvent = { clientX: 10, clientY: 20}
+        customCanvas.drawLine(mockEvent);
+        stack = JSON.parse(ctx.json());
+      })
+
+    it("connects from last point to new point", function() {
+      expect(stack[1].method).to.equal('lineTo');
     });
+
+    it("sets the style of the line", function() {
+      expect(stack[2].attr).to.equal('strokeStyle');
+    });
+
+    it("makes the line visable", function() {
+      expect(stack[3].method).to.equal('stroke');
+    });
+
+    it("moves the head of the line", function() {
+      expect(stack[4].method).to.equal('moveTo');
+      
+    });
+
+
 });
