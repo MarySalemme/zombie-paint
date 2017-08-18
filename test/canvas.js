@@ -82,7 +82,6 @@ describe ('Canvas', function() {
         mockEvent = { clientX: 10, clientY: 20}
         customCanvas.drawLine(mockEvent);
         stack = JSON.parse(ctx.json());
-        console.log(stack)
       })
 
     it("connects from last point to new point", function() {

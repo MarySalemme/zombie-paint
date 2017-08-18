@@ -4,7 +4,7 @@ window.onload = function() {
     width: window.innerWidth,
     height: window.innerHeight
   });
-  
+
   var element = document.getElementById('canvas');
   var stroke = new Stroke();
   controller = new Controller(element, stroke);
