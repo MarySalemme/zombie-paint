@@ -75,20 +75,30 @@ describe ('Canvas', function() {
     });
   });
 
-
-  describe('#createDot', function() {
+  describe('#drawLine', function() {
 
       beforeEach(function() {
-        customCanvas.createDot(10, 50);
+        ctx.clear();
+        mockEvent = { clientX: 10, clientY: 20}
+        customCanvas.drawLine(mockEvent);
         stack = JSON.parse(ctx.json());
+        console.log(stack)
       })
 
-    it("creates an arc on the canvas", function() {
-      expect(stack[1].method).to.equal('arc');
+    it("connects from last point to new point", function() {
+      expect(stack[1].method).to.equal('lineTo');
     });
 
-    it("fills the arc on the canvas", function() {
-      expect(stack[3].method).to.equal('fill');
+    it("sets the style of the line", function() {
+      expect(stack[2].attr).to.equal('strokeStyle');
+    });
+
+    it("makes the line visable", function() {
+      expect(stack[3].method).to.equal('stroke');
+    });
+
+    it("moves the head of the line", function() {
+      expect(stack[4].method).to.equal('moveTo');
     });
   });
 });
