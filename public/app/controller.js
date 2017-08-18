@@ -15,26 +15,13 @@
     }
   };
 
-  // function setInputListeners(element = extractCanvasElement(document), controller = setUpController()) {
-  //   element.on('mousemove', function(e) {
-  //     controller.canvas.startDrawing();
-  //
-  //       element.on('mousemove', function(e) {
-  //         if (controller.canvas.isDrawing()) {
-  //           controller.canvas.drawLine(e)
-  //         }
-  //
-  //         element.on('mouseup', function() {
-  //           controller.canvas.endDrawing();
-  //         })
-  //
-  //         element.on('mouseleave', function() {
-  //           controller.canvas.endDrawing();
-  //         })
-  //       })
-  //   })
-  // }
+  Controller.prototype.setMouseUpListener = function () {
+    this.$(this.htmlElement).mouseup(this.canvasDrawer.endDrawing())
+  };
 
+  Controller.prototype.setMouseLeaveListener = function () {
+    this.$(this.htmlElement).mouseleave(this.canvasDrawer.endDrawing())
+  };
 
   exports.Controller = Controller;
 })(this);

@@ -14,22 +14,36 @@ describe ('Controller', function () {
     drawLine: chai.spy(),
     isDrawing: function() {
       return true;
-    }
+    },
+    endDrawing: chai.spy()
   };
   controller = new Controller(mockJQuery, mockCanvas);
 
-  describe ('setMouseDownListener', function () {
+  describe ('#setMouseDownListener', function () {
     it ('binds a handler for the mouse going down', function () {
       controller.setMouseDownListener();
       expect(mockElement.mousedown).to.have.been.called();
     });
   });
 
-  describe('setMouseMoveListener', function() {
+  describe('#setMouseMoveListener', function() {
     it('binds a handler for the mouse moving', function () {
       controller.setMouseMoveListener();
       expect(mockElement.mousemove).to.have.been.called();
     });
   });
 
+  describe('#setMouseUpListener', function() {
+    it("binds a handler for the mouse going up", function () {
+      controller.setMouseUpListener();
+      expect(mockElement.mouseup).to.have.been.called();
+    });
+  });
+
+  describe('#setMouseLeaveListener', function() {
+    it("binds a handler for the mouse leaving the canvas", function () {
+      controller.setMouseLeaveListener();
+      expect(mockElement.mouseleave).to.have.been.called();
+    });
+  });
 })
