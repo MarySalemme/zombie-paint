@@ -15,6 +15,7 @@ Canvas.prototype.isDrawing = function () {
 
 Canvas.prototype.startDrawing = function () {
   this._drawing = true;
+  console.log("mouse down")
 };
 
 Canvas.prototype.endDrawing = function () {
@@ -44,4 +45,5 @@ Canvas.prototype.drawLine = function (e) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.stroke()
   this.ctx.moveTo(e.clientX, e.clientY)
+  console.log("mouse move")
 };
