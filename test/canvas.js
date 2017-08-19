@@ -13,18 +13,6 @@ describe ('Canvas', function() {
     });
   });
 
-  describe ('height', function() {
-    it('has a height', function() {
-      expect(customCanvas.height).to.equal(150);
-    });
-  });
-
-  describe ('width', function() {
-    it('has a width', function() {
-      expect(customCanvas.width).to.equal(300);
-    });
-  });
-
   describe('xAxis', function() {
     it("starts as an empty array", function () {
       expect(customCanvas.xAxis).to.be.empty;
@@ -98,6 +86,10 @@ describe ('Canvas', function() {
 
     it("moves the head of the line", function() {
       expect(stack[4].method).to.equal('moveTo');
+
     });
+
   });
+
+
 });
