@@ -3,7 +3,7 @@
     this.$ = $;
     this.canvasDrawer = canvasDrawer;
     this.htmlElement = this.canvasDrawer.element;
-    controller = this // Caveat coder! 'controller' here is made global so we can point back to the model. Watch where its used.
+    controller = this // Caveat coder! 'controller' here is made global so we can point back to the model. Watch where it's used.
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
