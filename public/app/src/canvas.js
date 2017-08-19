@@ -5,45 +5,46 @@ function Canvas(element, stroke) {
   this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
-  this.xAxis = [];
-  this.yAxis = [];
+  // this.xAxis = [];
+  // this.yAxis = [];
+  self = this // self allows us to point back to the canvas - it's global, so beware.
 };
 
 Canvas.prototype.isDrawing = function () {
-  return this._drawing
+  return self._drawing
 };
 
 Canvas.prototype.startDrawing = function () {
-  this._drawing = true;
-  console.log("mouse down")
+  self._drawing = true;
 };
 
 Canvas.prototype.endDrawing = function () {
-  this._drawing = false;
-  this.ctx.beginPath();
+  self._drawing = false;
+  self.ctx.beginPath();
 };
 
-Canvas.prototype.addCoordinates = function (x, y) {
-  this.xAxis.push(x);
-  this.yAxis.push(y);
-};
+// I think there's cause for removing the below and related properties
+
+// Canvas.prototype.addCoordinates = function (x, y) {
+//   this.xAxis.push(x);
+//   this.yAxis.push(y);
+// };
 
 Canvas.prototype.getStroke = function () {
-  return this._stroke;
-};
-
-Canvas.prototype.createDot = function (e) {
-  this.ctx.beginPath();
-  this.ctx.arc(e.clientX, e.clientY, 10, 0*Math.PI, Math.PI*2);
-  this.ctx.fillStyle = this.getStroke().getColour();
-  this.ctx.fill();
+  return self._stroke;
 };
 
 Canvas.prototype.drawLine = function (e) {
-  this.ctx.beginPath();
-  this.ctx.lineTo(e.clientX -1, e.clientY -1)
-  this.ctx.strokeStyle = this.getStroke().getColour();
-  this.ctx.stroke()
-  this.ctx.moveTo(e.clientX, e.clientY)
-  console.log("mouse move")
+  if (self._drawing) {
+
+  // Sets line qualities
+  self.ctx.lineJoin = "round";
+  self.ctx.strokeStyle = self.getStroke().getColour();
+  self.ctx.lineWidth = self.getStroke().getSize(); // Needs commenting out in TE
+
+  // Adds line to canvas
+  self.ctx.lineTo(e.clientX - this.offsetLeft, e.clientY - this.offsetTop)
+  self.ctx.stroke()
+  self.ctx.moveTo(e.clientX - this.offsetLeft, e.clientY - this.offsetTop)
+  }
 };

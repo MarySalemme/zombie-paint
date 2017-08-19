@@ -1,7 +1,10 @@
 
+
 #canvas {
   border: 1px solid black;
 }
+
+
 #palette button:nth-child(1) {
   background-color: red
 }
@@ -10,4 +13,8 @@
 }
 #palette button:nth-child(3) {
   background-color: green
+}
+
+#palette button:nth-child(4) {
+  background-color: black
 }

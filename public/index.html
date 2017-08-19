@@ -1,12 +1,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Long Live Paint!</title>
+  <title>Zombie Paint!</title>
   <link href="./css/index.css" rel="stylesheet" />
 </head>
 <body>
-  <div id="palette"> <button class="colours" id='#ff0000'> </button>  <button class="colours" id='#0000ff'> </button>  <button class="colours" id='#008000'> </button> </div>
+  <div id="palette"> <button class="colours" id='#ff0000'> </button>  <button class="colours" id='#0000ff'> </button>  <button class="colours" id='#008000'> </button> <button class="colours" id='#000'> </button> </div>
   <canvas id='canvas'></canvas>
+  <div id="sizer"> <button class="size" id='1'> S </button>  <button class='size' id='4'> M </button>  <button class="size" id='7'> L </button> </div>
+  <button id="eraser"> Eraser </button>
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   <script>
     // Initialize Firebase

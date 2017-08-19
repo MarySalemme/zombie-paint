@@ -1,10 +1,12 @@
 
+// File for global/helper functions
+
 function onDomReady(window, fn) {
   window.onload = fn;
 }
 
 function getCanvasElement() {
-  return htmlCanvas = document.getElementById('canvas')
+  return document.getElementById('canvas')
 }
 
 function getStroke() {
@@ -16,12 +18,39 @@ function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
 }
 
 function setUpController(controller = new Controller(jQuery, buildCanvas())) {
-  return controller;
-}
 
+  // Goliath. Let's extract
+  controller.setCanvasMouseDownListener();
+  controller.setCanvasMouseMoveListener();
+  controller.setCanvasMouseUpListener();
+  controller.setCanvasMouseLeaveListener();
+  controller.setPaletteClickListener();
+  controller.setSizerClickListener();
+  controller.setEraserClickListener();
+
+  return controller 
+}
 
 function pageElementSetup(doc) {
   setUpController();
 }
+
+// Untested
+function colourPicker() { // Grabs the colour val from the dom and passes it to the stroke model
+    var colorCode = $(this).attr('id')
+    controller.canvasDrawer.getStroke().changeColour(colorCode)
+}
+
+// Untested
+function sizeSetter() { // Grabs the colour val from the dom and passes it to the stroke model
+    var newSize = $(this).attr('id')
+    controller.canvasDrawer.getStroke().changeSize(newSize)
+}
+
+// Untested
+function eraserSettingOn() { // Grabs the colour val from the dom and passes it to the stroke model
+    controller.canvasDrawer.getStroke().changeColour('#ffffff')
+}
+
 
 onDomReady(jQuery, window, pageElementSetup(document));
