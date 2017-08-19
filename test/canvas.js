@@ -13,17 +13,17 @@ describe ('Canvas', function() {
     });
   });
 
-  describe('xAxis', function() {
-    it("starts as an empty array", function () {
-      expect(customCanvas.xAxis).to.be.empty;
-    });
-  });
-
-  describe('yAxis', function() {
-    it("starts as an empty array", function () {
-      expect(customCanvas.yAxis).to.be.empty;
-    });
-  });
+  // describe('xAxis', function() {
+  //   it("starts as an empty array", function () {
+  //     expect(customCanvas.xAxis).to.be.empty;
+  //   });
+  // });
+  //
+  // describe('yAxis', function() {
+  //   it("starts as an empty array", function () {
+  //     expect(customCanvas.yAxis).to.be.empty;
+  //   });
+  // });
 
   describe('#isDrawing', function() {
     it("returns a boolean value", function() {
@@ -45,17 +45,17 @@ describe ('Canvas', function() {
     });
   });
 
-  describe('#addCoordinates', function() {
-    it("creates an x-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.xAxis[0]).to.equal(10);
-    });
-
-    it("creates a y-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.yAxis[0]).to.equal(50);
-    });
-  });
+  // describe('#addCoordinates', function() {
+  //   it("creates an x-coordinate", function() {
+  //     customCanvas.addCoordinates(10, 50);
+  //     expect(customCanvas.xAxis[0]).to.equal(10);
+  //   });
+  //
+  //   it("creates a y-coordinate", function() {
+  //     customCanvas.addCoordinates(10, 50);
+  //     expect(customCanvas.yAxis[0]).to.equal(50);
+  //   });
+  // });
 
   describe('#getStroke', function() {
     it("returns the stroke object", function() {
@@ -65,31 +65,37 @@ describe ('Canvas', function() {
 
   describe('#drawLine', function() {
 
+    describe("when the user has clicked and is drawing", function(){
+
       beforeEach(function() {
         ctx.clear();
-        mockEvent = { clientX: 10, clientY: 20}
+        mockEvent = { clientX: 10, clientY: 20 }
+        customCanvas.startDrawing();
         customCanvas.drawLine(mockEvent);
         stack = JSON.parse(ctx.json());
       })
 
-    it("connects from last point to new point", function() {
-      expect(stack[1].method).to.equal('lineTo');
-    });
+      it("sets the stroke colour", function() {
+      expect(stack[1].attr).to.equal('strokeStyle');
+      });
 
-    it("sets the style of the line", function() {
-      expect(stack[2].attr).to.equal('strokeStyle');
-    });
+      it("connects from last point to new point", function() {
+      expect(stack[2].method).to.equal('lineTo');
+      });
 
-    it("makes the line visable", function() {
+
+      it("makes the line visable", function() {
       expect(stack[3].method).to.equal('stroke');
-    });
+      });
 
-    it("moves the head of the line", function() {
+      it("moves the head of the line", function() {
       expect(stack[4].method).to.equal('moveTo');
 
-    });
+      });
 
-  });
+    })
+
+  })
 
 
 });
