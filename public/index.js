@@ -20,6 +20,6 @@ window.onload = function() {
     controller.canvas.createDot(e);
   })
 
-  // change
+// a colour handler
 
 };
