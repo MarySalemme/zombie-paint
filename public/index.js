@@ -1,29 +1,23 @@
 
 function onDomReady(window, fn) {
   window.onload = fn;
-  console.log("log1");
 }
 
-function getCanvasElement(document) {
+function getCanvasElement() {
   return htmlCanvas = document.getElementById('canvas')
 }
 
-function buildCanvas(canvas = new Canvas(getCanvasElement(document))) {
+function buildCanvas(canvas = new Canvas(getCanvasElement())) {
   return canvas = canvas
 }
 
 function setUpController(controller = new Controller(buildCanvas())) {
   controller = controller;
-  console.log(controller);
   controller.setMouseDownListener();
 }
 
-function pageElementSetup(document) {
-  console.log("log2");
-  getCanvasElement(document)
-  buildCanvas(document)
-  setUpController(document);
-  console.log("log3");
+function pageElementSetup(doc) {
+  setUpController();
 }
 
 onDomReady(window, pageElementSetup(document));

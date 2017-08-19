@@ -1,5 +1,5 @@
 (function(exports) {
-  function Controller($, canvasDrawer = new Canvas(element)) {
+  function Controller($, canvasDrawer = canvas) {
     this.$ = $;
     this.canvasDrawer = canvasDrawer;
     this.htmlElement = this.canvasDrawer.element;
