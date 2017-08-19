@@ -7,19 +7,20 @@ function getCanvasElement() {
   return htmlCanvas = document.getElementById('canvas')
 }
 
-function buildCanvas(canvas = new Canvas(getCanvasElement())) {
-  return canvas = canvas
+function getStroke() {
+  return new Stroke();
 }
 
-function setUpController(controller = new Controller(buildCanvas())) {
-  controller = controller;
-  controller.setMouseDownListener();
+function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
+  return canvas;
+}
+
+function setUpController(controller = new Controller(jQuery, buildCanvas())) {
+  return controller;
 }
 
 function pageElementSetup(doc) {
   setUpController();
 }
 
-onDomReady(window, pageElementSetup(document));
-
-// controller.setMouseDownListener();
+onDomReady(jQuery, window, pageElementSetup(document));

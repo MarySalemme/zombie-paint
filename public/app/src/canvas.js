@@ -1,6 +1,6 @@
 function Canvas(element, stroke) {
   this.element = element;
-  this._stroke = stroke
+  this._stroke = stroke;
   this.height = this.element.height;
   this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
@@ -40,8 +40,8 @@ Canvas.prototype.createDot = function (e) {
 
 Canvas.prototype.drawLine = function (e) {
   this.ctx.beginPath();
-  this.ctx.lineTo(e.clintX -1, e.clientY -1)
+  this.ctx.lineTo(e.clientX -1, e.clientY -1)
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.stroke()
-  this.ctx.moveTo(e.clintX, e.clientY)
+  this.ctx.moveTo(e.clientX, e.clientY)
 };
