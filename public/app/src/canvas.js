@@ -1,4 +1,4 @@
-function Canvas(element, stroke) {
+function Canvas(element, stroke = new Stroke()) {
   this.element = element;
   this._stroke = stroke
   this.height = this.element.height;

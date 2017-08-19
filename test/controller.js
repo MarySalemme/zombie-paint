@@ -6,8 +6,10 @@ describe ('Controller', function () {
     mousedown: chai.spy(),
     mousemove: chai.spy(),
     mouseup: chai.spy(),
-    mouseleave: chai.spy()
+    mouseleave: chai.spy(),
+    mouseclick: chai.spy()
   };
+
   mockJQuery = function() { return mockElement };
   mockCanvas = {
     startDrawing: chai.spy(),
@@ -46,4 +48,11 @@ describe ('Controller', function () {
       expect(mockElement.mouseleave).to.have.been.called();
     });
   });
-})
+
+  describe("setSizeClickListener", function() {
+    it("binds a handler for the mouse clicking on the sizer", function() {
+      controller.setSizeClickListener();
+      expect(mockElement.mouseclick).to.have.been.called();
+    });
+  });
+});
