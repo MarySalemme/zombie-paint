@@ -1,6 +1,7 @@
 
 function onDomReady(window, fn) {
   window.onload = fn;
+  console.log("log1");
 }
 
 function getCanvasElement(document) {
@@ -12,14 +13,19 @@ function buildCanvas(canvas = new Canvas(getCanvasElement(document))) {
 }
 
 function setUpController(controller = new Controller(buildCanvas())) {
-  return controller = controller;
+  controller = controller;
+  console.log(controller);
+  controller.setMouseDownListener();
 }
 
 function pageElementSetup(document) {
+  console.log("log2");
   getCanvasElement(document)
   buildCanvas(document)
   setUpController(document);
+  console.log("log3");
 }
 
-onDomReady(window, pageElementSetup(document))
+onDomReady(window, pageElementSetup(document));
 
+// controller.setMouseDownListener();

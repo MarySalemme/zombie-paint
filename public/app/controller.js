@@ -7,6 +7,7 @@
 
   Controller.prototype.setMouseDownListener = function () {
     this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing())
+    console.log('hleo');
   };
 
   Controller.prototype.setMouseMoveListener = function (e) {
