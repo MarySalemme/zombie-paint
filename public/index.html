@@ -2,11 +2,12 @@
 <head>
   <meta charset="utf-8">
   <title>Long Live Paint!</title>
-  <link href="./css/index.css" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet">
+  <link href="./css/palette.css" rel="stylesheet">
 </head>
 <body>
-  <div id="palette"> <button class="colours" id='#ff0000'> </button>  <button class="colours" id='#0000ff'> </button>  <button class="colours" id='#008000'> </button> </div>
-  <canvas id='canvas'></canvas>
+  <div id="palette"> <button class="colours" id="#ff0000"> </button>  <button class="colours" id="#0000ff"> </button>  <button class="colours" id="#008000"> </button> </div>
+  <canvas id="canvas"></canvas>
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -21,9 +22,9 @@
     firebase.initializeApp(config);
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./app/src/stroke.js"></script>
-  <script src="./app/src/canvas.js"></script>
-  <script src="./app/controller.js"></script>
-  <script src="./index.js"></script>
+  <script src="./src/stroke.js"></script>
+  <script src="./src/canvas.js"></script>
+  <script src="../app/controller.js"></script>
+  <script src="../app/index.js"></script>
 </body>
 </html>
