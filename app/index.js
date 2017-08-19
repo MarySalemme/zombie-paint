@@ -1,4 +1,3 @@
-
 function onDomReady(window, fn) {
   window.onload = fn;
 }
@@ -22,4 +21,3 @@ function pageElementSetup(document) {
 }
 
 onDomReady(window, pageElementSetup(document))
-
