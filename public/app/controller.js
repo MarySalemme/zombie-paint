@@ -11,6 +11,7 @@
   };
 
   Controller.prototype.setMouseMoveListener = function () {
+    console.log("yo")
     if (this.canvasDrawer.isDrawing()) {
       console.log("Yo!")
       this.$(this.htmlElement).on('mousemove', function() { console.log(" Hi! ")})
