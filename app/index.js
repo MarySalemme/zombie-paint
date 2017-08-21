@@ -2,22 +2,28 @@ function onDomReady(window, fn) {
   window.onload = fn;
 }
 
-function getCanvasElement(document) {
+function getCanvasElement() {
   return htmlCanvas = document.getElementById('canvas')
 }
 
-function buildCanvas(canvas = new Canvas(getCanvasElement(document))) {
-  return canvas = canvas
+function getStroke() {
+  return new Stroke();
 }
 
-function setUpController(controller = new Controller(buildCanvas())) {
-  return controller = controller;
+function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
+  return canvas;
 }
 
-function pageElementSetup(document) {
-  getCanvasElement(document)
-  buildCanvas(document)
-  setUpController(document);
+function setUpController(controller = new Controller(jQuery, buildCanvas())) {
+  controller.setCanvasMouseDownListener();
+  controller.setCanvasMouseMoveListener();
+  controller.setCanvasMouseUpListener();
+  controller.setCanvasMouseLeaveListener();
+  return controller;
 }
 
-onDomReady(window, pageElementSetup(document))
+function pageElementSetup(doc) {
+  setUpController();
+}
+
+onDomReady(jQuery, window, pageElementSetup(document));
