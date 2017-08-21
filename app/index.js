@@ -22,7 +22,6 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   return controller;
 }
 
-
 function pageElementSetup(doc) {
   setUpController();
 }
