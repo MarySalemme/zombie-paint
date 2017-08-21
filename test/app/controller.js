@@ -74,4 +74,6 @@ describe ('Controller', function () {
   //     expect(mockElement.attr).to.have.been.called();
   //   });
   // });
+
+  // test for sizePicker
 });

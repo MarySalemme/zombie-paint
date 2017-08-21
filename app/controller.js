@@ -27,7 +27,6 @@
 
   Controller.prototype.setPaletteClickListener = function () {
     this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
-    console.log("changes colour")
   };
 
   Controller.prototype.colourPicker = function(e) {
@@ -37,12 +36,10 @@
 
   Controller.prototype.setSizerClickListener = function () {
     this.$('.sizes').click(this.sizePicker.bind(this.canvasDrawer))
-    console.log("changes size")
   };
 
   Controller.prototype.sizePicker = function(e) {
     var strokeSize = $(e.target).attr('id')
-    console.log(strokeSize)
     this.getStroke().changeWidth(strokeSize)
   };
 
