@@ -8,20 +8,8 @@ describe ('Canvas', function() {
   ctx = customCanvas.ctx
 
   describe ('element', function() {
-    it('contains canvas element', function() {
+    it('contains the html canvas element', function() {
       expect(customCanvas.element).to.equal(canvas);
-    });
-  });
-
-  describe('xAxis', function() {
-    it("starts as an empty array", function () {
-      expect(customCanvas.xAxis).to.be.empty;
-    });
-  });
-
-  describe('yAxis', function() {
-    it("starts as an empty array", function () {
-      expect(customCanvas.yAxis).to.be.empty;
     });
   });
 
@@ -45,18 +33,6 @@ describe ('Canvas', function() {
     });
   });
 
-  describe('#addCoordinates', function() {
-    it("creates an x-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.xAxis[0]).to.equal(10);
-    });
-
-    it("creates a y-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.yAxis[0]).to.equal(50);
-    });
-  });
-
   describe('#getStroke', function() {
     it("returns the stroke object", function() {
       expect(customCanvas.getStroke()).to.equal(customCanvas._stroke);
@@ -64,7 +40,6 @@ describe ('Canvas', function() {
   });
 
   describe('#drawLine', function() {
-
       beforeEach(function() {
         ctx.clear();
         mockEvent = { clientX: 10, clientY: 20}
@@ -74,23 +49,31 @@ describe ('Canvas', function() {
 
     it("connects from last point to new point", function() {
       console.log(stack);
-      expect(stack[0].method).to.equal('beginPath');
+      expect(stack[0].method).to.equal('lineTo');
     });
 
-    it("sets the style of the line", function() {
-      expect(stack[2].attr).to.equal('lineTo');
+    it("makes the line visible", function() {
+      expect(stack[1].method).to.equal('stroke');
     });
 
-    it("makes the line visable", function() {
-      expect(stack[3].method).to.equal('stroke');
+    it("fills the dot", function() {
+      expect(stack[2].method).to.equal('beginPath');
     });
 
-    it("moves the head of the line", function() {
-      expect(stack[4].method).to.equal('moveTo');
-
+    it("creates the dot", function() {
+      expect(stack[3].method).to.equal('arc');
     });
 
+    it("fills the dot", function() {
+      expect(stack[4].method).to.equal('fill');
+    });
+
+    it("fills the dot", function() {
+      expect(stack[5].method).to.equal('beginPath');
+    });
+
+    it("starts a new line from the dot", function() {
+      expect(stack[6].method).to.equal('moveTo');
+    });
   });
-
-
 });
