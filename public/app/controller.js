@@ -25,5 +25,14 @@
     this.$(this.htmlElement).mouseleave(this.canvasDrawer.endDrawing.bind(this.canvasDrawer))
   };
 
+  Controller.prototype.setPaletteClickListener = function () {
+  this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
+};
+
+Controller.prototype.colourPicker = function(e) {
+  var colorCode = $(e.target).attr('id')
+  this.getStroke().changeColour(colorCode)
+};
+
   exports.Controller = Controller;
 })(this);

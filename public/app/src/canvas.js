@@ -39,8 +39,7 @@ Canvas.prototype.drawLine = function (e) {
   this.ctx.stroke()
   this.ctx.beginPath();
   // this.ctx.arc(e.offsetX, e.offsetY, 5, 0, Math.PI*2);
-  this.ctx.fillStyle = this.getStroke().getColour();
-  // this.ctx.fill();
+  this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.beginPath()
   this.ctx.moveTo(e.clientX, e.clientY)
   console.log("this is drawing something, or maybe not");
