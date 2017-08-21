@@ -11,10 +11,6 @@ describe ('Controller', function () {
     attr: chai.spy()
   };
 
-  mockEvent = {
-    target: chai.spy()
-  }
-
   mockJQuery = function() { return mockElement };
 
   mockCanvas = {
@@ -64,6 +60,13 @@ describe ('Controller', function () {
     });
   });
 
+  describe('#setSizerClickListener', function () {
+    it('binds a handler for clicking on a size button', function () {
+      controller.setSizerClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
   // describe('#colourPicker', function () {
   //   this = mockCanvas;
   //   it('calls attr on colour button', function () {
@@ -71,4 +74,4 @@ describe ('Controller', function () {
   //     expect(mockElement.attr).to.have.been.called();
   //   });
   // });
-})
+});
