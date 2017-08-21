@@ -6,7 +6,11 @@
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
-    this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing.bind(this.canvasDrawer))
+    this.$(this.htmlElement).mousedown((function(e) {
+      this.startDrawing();
+      this.drawLine(e);
+    }).bind(this.canvasDrawer))
+      // this.canvasDrawer.startDrawing.bind(this.canvasDrawer))
   };
 
   Controller.prototype.setCanvasMouseMoveListener = function () {
