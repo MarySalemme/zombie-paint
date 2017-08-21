@@ -5,6 +5,8 @@ function Canvas(element, stroke) {
   this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
+  this.xAxis = [];
+  this.yAxis = [];
 };
 
 Canvas.prototype.isDrawing = function () {
@@ -21,6 +23,11 @@ Canvas.prototype.endDrawing = function () {
   this._drawing = false;
   this.ctx.beginPath();
   console.log(this._drawing);
+};
+
+Canvas.prototype.addCoordinates = function (x, y) {
+  this.xAxis.push(x);
+  this.yAxis.push(y);
 };
 
 Canvas.prototype.getStroke = function () {

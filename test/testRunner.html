@@ -2,8 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Long Live Paint!</title>
- <!-- <link rel= "stylesheet" href="css/style.css"/> -->
+  <title>Test Runner</title>
   <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -19,20 +18,20 @@
 
   <script>mocha.setup('bdd')</script>
 
-  <script type="text/javascript" src="../public/app/controller.js"></script>
-  <script type="text/javascript" src="../public/app/src/stroke.js"></script>
-  <script type="text/javascript" src="./stroke.js"></script>
-  <script type="text/javascript" src="../public/app/src/canvas.js"></script>
-  <script type="text/javascript" src="../public/index.js"></script>
-  <script type="text/javascript" src="./setUpFunctions.js"></script>
-  <script type="text/javascript" src="./handlers.js"></script>
-  <script type="text/javascript" src="./canvas.js"></script>
-  <script type="text/javascript" src="./controller.js"></script>
+  <!-- files to be tested -->
+  <script type="text/javascript" src="../app/controller.js"></script>
+  <script type="text/javascript" src="../app/index.js"></script>
+  <script type="text/javascript" src="../public/src/stroke.js"></script>
+  <script type="text/javascript" src="../public/src/canvas.js"></script>
+
+  <!-- tests -->
+  <script type="text/javascript" src="./src/canvas.js"></script>
+  <script type="text/javascript" src="./src/stroke.js"></script>
+  <script type="text/javascript" src="./app/setUpFunctions.js"></script>
+  <script type="text/javascript" src="./app/controller.js"></script>
 
   <script>
-  mocha.run();
+    mocha.run();
   </script>
-
-</head>
 </body>
 </html>

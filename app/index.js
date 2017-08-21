@@ -18,7 +18,7 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setMouseDownListener()
   controller.setMouseMoveListener()
   controller.setMouseUpListener()
-  
+
   controller.setPaletteClickListener();
   return controller;
 }

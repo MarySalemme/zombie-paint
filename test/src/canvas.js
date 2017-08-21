@@ -45,18 +45,6 @@ describe ('Canvas', function() {
     });
   });
 
-  describe('#addCoordinates', function() {
-    it("creates an x-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.xAxis[0]).to.equal(10);
-    });
-
-    it("creates a y-coordinate", function() {
-      customCanvas.addCoordinates(10, 50);
-      expect(customCanvas.yAxis[0]).to.equal(50);
-    });
-  });
-
   describe('#getStroke', function() {
     it("returns the stroke object", function() {
       expect(customCanvas.getStroke()).to.equal(customCanvas._stroke);
