@@ -15,6 +15,9 @@ var expect = chai.expect;
                           setPaletteClickListener: () => null
                         };
 
+  mockJQuery = function() { return mockElement };
+
+
   describe('#onDomReady', function() {
     it("loads passed function on load", function() {
         onDomReady(mockWindow, mockFunction);
