@@ -28,10 +28,12 @@ Canvas.prototype.getStroke = function () {
 };
 
 Canvas.prototype.drawLine = function (e, radius = this.radius) {
+  this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineTo(e.clientX, e.clientY);
   this.ctx.stroke();
   this.ctx.beginPath();
   this.ctx.arc(e.clientX, e.clientY, radius, 0, Math.PI*2);
+  this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.fill();
   this.ctx.beginPath();
   this.ctx.moveTo(e.clientX, e.clientY);
