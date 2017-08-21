@@ -70,27 +70,26 @@ describe ('Canvas', function() {
         mockEvent = { clientX: 10, clientY: 20}
         customCanvas.drawLine(mockEvent);
         stack = JSON.parse(ctx.json());
-      })
-
-    it("connects from last point to new point", function() {
-      console.log(stack);
-      expect(stack[0].method).to.equal('beginPath');
-    });
+      });
 
     it("sets the style of the line", function() {
-      expect(stack[2].attr).to.equal('lineTo');
+      expect(stack[0].method).to.equal('lineTo');
     });
 
     it("makes the line visable", function() {
-      expect(stack[3].method).to.equal('stroke');
+      expect(stack[1].method).to.equal('stroke');
+    });
+
+    it("connects from last point to new point", function() {
+      expect(stack[2].method).to.equal('beginPath');
+    });
+
+    it("fills in a colour", function() {
+      expect(stack[3].attr).to.equal('fillStyle');
     });
 
     it("moves the head of the line", function() {
-      expect(stack[4].method).to.equal('moveTo');
-
+      expect(stack[5].method).to.equal('moveTo');
     });
-
   });
-
-
 });
