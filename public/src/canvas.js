@@ -28,10 +28,12 @@ Canvas.prototype.getStroke = function () {
 };
 
 Canvas.prototype.drawLine = function (e, radius = this.radius) {
+  this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineTo(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop);
   this.ctx.stroke();
   this.ctx.beginPath();
   this.ctx.arc(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop, radius, 0, Math.PI*2);
+  this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.fill();
   this.ctx.beginPath();
   this.ctx.moveTo(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop);
