@@ -16,32 +16,34 @@ describe ('Controller', function () {
     isDrawing: chai.spy(),
     endDrawing: chai.spy()
   };
-  controller = new Controller(mockJQuery, mockCanvas);
+
+  // Change to test controller to remove ambiguity with global hook in controller
+  testController = new Controller(mockJQuery, mockCanvas);
 
   describe ('#setMouseDownListener', function () {
     it ('binds a handler for the mouse going down', function () {
-      controller.setMouseDownListener();
+      testController.setCanvasMouseDownListener();
       expect(mockElement.mousedown).to.have.been.called();
     });
   });
 
   describe('#setMouseMoveListener', function() {
     it('binds a handler for the mouse moving', function () {
-      controller.setMouseMoveListener();
+      testController.setCanvasMouseMoveListener();
       expect(mockElement.mousemove).to.have.been.called();
     });
   });
 
   describe('#setMouseUpListener', function() {
     it("binds a handler for the mouse going up", function () {
-      controller.setMouseUpListener();
+      testController.setCanvasMouseUpListener();
       expect(mockElement.mouseup).to.have.been.called();
     });
   });
 
   describe('#setMouseLeaveListener', function() {
     it("binds a handler for the mouse leaving the canvas", function () {
-      controller.setMouseLeaveListener();
+      testController.setCanvasMouseLeaveListener();
       expect(mockElement.mouseleave).to.have.been.called();
     });
   });

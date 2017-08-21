@@ -5,12 +5,10 @@ function Canvas(element, stroke) {
   this.width = this.element.width;
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
-  this.xAxis = [];
-  this.yAxis = [];
 };
 
 Canvas.prototype.isDrawing = function () {
-  return this._drawing
+  return self._drawing
 };
 
 Canvas.prototype.startDrawing = function () {
@@ -25,14 +23,13 @@ Canvas.prototype.endDrawing = function () {
   console.log(this._drawing);
 };
 
-Canvas.prototype.addCoordinates = function (x, y) {
-  this.xAxis.push(x);
-  this.yAxis.push(y);
-};
 
-Canvas.prototype.getStroke = function () {
-  return this._stroke;
-};
+// I think there's cause for removing the below and related properties
+
+// Canvas.prototype.addCoordinates = function (x, y) {
+//   this.xAxis.push(x);
+//   this.yAxis.push(y);
+// };
 
 Canvas.prototype.createDot = function (e) {
   this.ctx.beginPath();
@@ -51,5 +48,8 @@ Canvas.prototype.drawLine = function (e) {
   //
   this.ctx.stroke();
   console.log("this is drawing something, or maybe not");
-  // console.log("mouse move")
+};
+
+Canvas.prototype.getStroke = function () {
+  return self._stroke;
 };

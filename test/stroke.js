@@ -6,7 +6,7 @@ describe('Stroke', function() {
 
   describe('size', function() {
     it("starts with a default size of 10 px", function () {
-      expect(stroke.size).to.equal(10);
+      expect(stroke.currentSize).to.equal(10);
     });
   });
 
@@ -16,42 +16,31 @@ describe('Stroke', function() {
     });
   });
 
-  describe('red', function() {
-    it("has a fixed value of 'ff0000'", function () {
-      expect(stroke.red).to.equal("#ff0000");
-    });
-  });
-
-  describe('blue', function() {
-    it("has a fixed value of '0000ff'", function () {
-      expect(stroke.blue).to.equal("#0000ff");
-    });
-  });
-
-  describe('green', function() {
-    it("has a fixed value of '008000'", function () {
-      expect(stroke.green).to.equal('#008000')
-    });
-  });
-
   describe('#changeSize', function() {
     it("increases or decreases the size of the stroke", function () {
       stroke.changeSize(20);
-      expect(stroke.size).to.equal(20);
+      expect(stroke.currentSize).to.equal(20);
     });
   });
 
   describe('#changeColour', function() {
     it("changes the stroke colour", function() {
-      stroke.changeColour(stroke.red);
+      stroke.changeColour('#ff0000');
       expect(stroke.currentColour).to.equal('#ff0000');
     });
   });
 
   describe('#getColour', function() {
     it("return the current stroke colour", function() {
-      stroke.changeColour(stroke.red);
+      stroke.changeColour('#ff0000');
       expect(stroke.getColour()).to.equal('#ff0000');
     });
   });
+
+  describe('#getSize', function() {
+      it("changes the size of the stroke", function() {
+        stroke.changeSize(20);
+        expect(stroke.getSize()).to.equal(20);
+      });
+    });
 });

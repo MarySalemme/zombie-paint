@@ -7,11 +7,6 @@
 
   Controller.prototype.setMouseDownListener = function () {
     this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing.bind(this.canvasDrawer))
-
-    // this.$(this.htmlElement).on('mousedown', this.canvasDrawer, function(e) {
-    //   e.data.startDrawing();
-    // });
-
   };
 
   Controller.prototype.setMouseMoveListener = function () {
@@ -26,8 +21,8 @@
     this.$(this.htmlElement).mouseup(this.canvasDrawer.endDrawing.bind(this.canvasDrawer))
   };
 
-  Controller.prototype.setMouseLeaveListener = function () {
-    this.$(this.htmlElement).on('mouseleave', this.canvasDrawer.endDrawing())
+  Controller.prototype.setCanvasMouseLeaveListener = function () {
+    this.$(this.htmlElement).mouseleave(this.canvasDrawer.endDrawing.bind(this.canvasDrawer))
   };
 
   exports.Controller = Controller;
