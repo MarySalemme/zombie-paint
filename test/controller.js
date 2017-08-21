@@ -6,17 +6,27 @@ describe ('Controller', function () {
     mousedown: chai.spy(),
     mousemove: chai.spy(),
     mouseup: chai.spy(),
-    mouseleave: chai.spy()
+    mouseleave: chai.spy(),
+    click: chai.spy(),
+    attr: chai.spy()
   };
+
+  mockEvent = {
+    target: chai.spy()
+  }
+
   mockJQuery = function() { return mockElement };
+
   mockCanvas = {
     startDrawing: chai.spy(),
     drawLine: chai.spy(),
     isDrawing: function() {
       return true;
     },
-    endDrawing: chai.spy()
+    endDrawing: chai.spy(),
+    getStroke: chai.spy()
   };
+
   controller = new Controller(mockJQuery, mockCanvas);
 
   describe ('#setMouseDownListener', function () {
@@ -46,4 +56,19 @@ describe ('Controller', function () {
       expect(mockElement.mouseleave).to.have.been.called();
     });
   });
+
+  describe('#setPaletteClickListener', function () {
+    it('binds a handler for clicking on a colour button', function () {
+      controller.setPaletteClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  // describe('#colourPicker', function () {
+  //   this = mockCanvas;
+  //   it('calls attr on colour button', function () {
+  //     controller.colourPicker(mockEvent);
+  //     expect(mockElement.attr).to.have.been.called();
+  //   });
+  // });
 })
