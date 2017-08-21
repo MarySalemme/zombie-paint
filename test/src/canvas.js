@@ -49,31 +49,35 @@ describe ('Canvas', function() {
 
     it("connects from last point to new point", function() {
       console.log(stack);
-      expect(stack[0].method).to.equal('lineTo');
+      expect(stack[1].method).to.equal('lineTo');
     });
 
     it("makes the line visible", function() {
-      expect(stack[1].method).to.equal('stroke');
+      expect(stack[2].method).to.equal('stroke');
     });
 
-    it("fills the dot", function() {
-      expect(stack[2].method).to.equal('beginPath');
+    it("begins the path", function() {
+      expect(stack[3].method).to.equal('beginPath');
     });
 
     it("creates the dot", function() {
-      expect(stack[3].method).to.equal('arc');
+      expect(stack[4].method).to.equal('arc');
+    });
+
+    it("sets style of fill", function() {
+      expect(stack[5].attr).to.equal('fillStyle');
     });
 
     it("fills the dot", function() {
-      expect(stack[4].method).to.equal('fill');
+      expect(stack[6].method).to.equal('fill');
     });
 
-    it("fills the dot", function() {
-      expect(stack[5].method).to.equal('beginPath');
+    it("restarts the path", function() {
+      expect(stack[7].method).to.equal('beginPath');
     });
 
     it("starts a new line from the dot", function() {
-      expect(stack[6].method).to.equal('moveTo');
+      expect(stack[8].method).to.equal('moveTo');
     });
   });
 });

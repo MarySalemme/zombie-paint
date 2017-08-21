@@ -11,7 +11,8 @@ var expect = chai.expect;
   mockControllerModel = { setCanvasMouseDownListener: () => "mouse down",
                           setCanvasMouseMoveListener: () => "mouse move",
                           setCanvasMouseUpListener: () => "mouse up",
-                          setCanvasMouseLeaveListener: () => "mouse leave"
+                          setCanvasMouseLeaveListener: () => "mouse leave",
+                          setPaletteClickListener: () => null
                         };
 
   describe('#onDomReady', function() {
