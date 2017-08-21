@@ -21,28 +21,28 @@ describe ('Controller', function () {
 
   describe ('#setMouseDownListener', function () {
     it ('binds a handler for the mouse going down', function () {
-      controller.setMouseDownListener();
+      controller.setCanvasMouseDownListener();
       expect(mockElement.mousedown).to.have.been.called();
     });
   });
 
   describe('#setMouseMoveListener', function() {
     it('binds a handler for the mouse moving', function () {
-      controller.setMouseMoveListener();
+      controller.setCanvasMouseMoveListener();
       expect(mockElement.mousemove).to.have.been.called();
     });
   });
 
   describe('#setMouseUpListener', function() {
     it("binds a handler for the mouse going up", function () {
-      controller.setMouseUpListener();
+      controller.setCanvasMouseUpListener();
       expect(mockElement.mouseup).to.have.been.called();
     });
   });
 
   describe('#setMouseLeaveListener', function() {
     it("binds a handler for the mouse leaving the canvas", function () {
-      controller.setMouseLeaveListener();
+      controller.setCanvasMouseLeaveListener();
       expect(mockElement.mouseleave).to.have.been.called();
     });
   });

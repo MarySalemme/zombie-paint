@@ -10,7 +10,7 @@ function Canvas(element, stroke) {
 };
 
 Canvas.prototype.isDrawing = function () {
-  return this._drawing
+  return this._drawing;
 };
 
 Canvas.prototype.startDrawing = function () {
@@ -21,7 +21,6 @@ Canvas.prototype.startDrawing = function () {
 Canvas.prototype.endDrawing = function () {
   this._drawing = false;
   this.ctx.beginPath();
-  console.log(this._drawing);
 };
 
 Canvas.prototype.getStroke = function () {
