@@ -15,12 +15,14 @@ Canvas.prototype.isDrawing = function () {
 
 Canvas.prototype.startDrawing = function () {
   this._drawing = true;
-  console.log("mouse down")
+  console.log(this._drawing);
 };
 
 Canvas.prototype.endDrawing = function () {
   this._drawing = false;
   this.ctx.beginPath();
+  console.log("This is ending the drawing");
+  console.log(this._drawing);
 };
 
 Canvas.prototype.addCoordinates = function (x, y) {
@@ -37,13 +39,17 @@ Canvas.prototype.createDot = function (e) {
   this.ctx.arc(e.clientX, e.clientY, 10, 0*Math.PI, Math.PI*2);
   this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.fill();
+  console.log("I'm creating a dot");
 };
 
 Canvas.prototype.drawLine = function (e) {
   this.ctx.beginPath();
+  this.ctx.strokeStyle = 'green';
   this.ctx.lineTo(e.clientX -1, e.clientY -1)
-  this.ctx.strokeStyle = this.getStroke().getColour();
-  this.ctx.stroke()
   this.ctx.moveTo(e.clientX, e.clientY)
-  console.log("mouse move")
+  // // this.ctx.strokeStyle = this.getStroke().getColour();
+  //
+  this.ctx.stroke();
+  console.log("this is drawing something, or maybe not");
+  // console.log("mouse move")
 };

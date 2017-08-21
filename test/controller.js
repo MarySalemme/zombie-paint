@@ -8,13 +8,12 @@ describe ('Controller', function () {
     mouseup: chai.spy(),
     mouseleave: chai.spy()
   };
-  mockJQuery = function() { return mockElement };
+  mockJQuery = function() {
+    return mockElement };
   mockCanvas = {
     startDrawing: chai.spy(),
     drawLine: chai.spy(),
-    isDrawing: function() {
-      return true;
-    },
+    isDrawing: chai.spy(),
     endDrawing: chai.spy()
   };
   controller = new Controller(mockJQuery, mockCanvas);
