@@ -73,11 +73,12 @@ describe ('Canvas', function() {
       })
 
     it("connects from last point to new point", function() {
-      expect(stack[1].method).to.equal('lineTo');
+      console.log(stack);
+      expect(stack[0].method).to.equal('beginPath');
     });
 
     it("sets the style of the line", function() {
-      expect(stack[2].attr).to.equal('strokeStyle');
+      expect(stack[2].attr).to.equal('lineTo');
     });
 
     it("makes the line visable", function() {

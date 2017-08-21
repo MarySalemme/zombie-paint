@@ -1,4 +1,3 @@
-
 function onDomReady(window, fn) {
   window.onload = fn;
 }
@@ -16,6 +15,9 @@ function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
 }
 
 function setUpController(controller = new Controller(jQuery, buildCanvas())) {
+  controller.setMouseDownListener()
+  controller.setMouseMoveListener()
+  controller.setMouseUpListener()
   return controller;
 }
 

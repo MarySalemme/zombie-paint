@@ -21,6 +21,7 @@ var expect = chai.expect;
         it('gets the canvas element from the document', function() {
             let spy = chai.spy.on(mockDocument, 'getElementById');
             getCanvasElement(mockDocument)
+            console.log(spy);
             expect(spy).to.have.been.called()
         })
     })
