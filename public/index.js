@@ -15,9 +15,9 @@ function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
 }
 
 function setUpController(controller = new Controller(jQuery, buildCanvas())) {
-  controller.setMouseDownListener()
-  controller.setMouseMoveListener()
-  controller.setMouseUpListener()
+  controller.setCanvasMouseDownListener()
+  controller.setCanvasMouseMoveListener()
+  controller.setCanvasMouseUpListener()
   return controller;
 }
 
