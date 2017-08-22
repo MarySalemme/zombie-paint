@@ -19,6 +19,7 @@ describe ('Controller', function() {
     isDrawing: function() {
       return true;
     },
+    clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
     fill: chai.spy()
   };
@@ -84,12 +85,21 @@ describe ('Controller', function() {
     });
   });
 
+<<<<<<< HEAD
   describe('#setBucketClickListener', function() {
     it('binds a handler for clicking on a fill button', function() {
       controller.setBucketClickListener();
       expect(mockElement.click).to.have.been.called();
     })
   })
+=======
+  describe('#setCanvasClearClickListener', function () {
+    it('binds a handler for clicking on the clear button', function () {
+      controller.setCanvasClearClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+>>>>>>> 316c4181290a7f90b773b0f3d8a8baa2f865f7a7
 
   // describe('#colourPicker', function () {
   //

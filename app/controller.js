@@ -29,7 +29,6 @@
   };
 
   Controller.prototype.setPaletteClickListener = function () {
-
     this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
   };
 
@@ -47,6 +46,10 @@
     var strokeSize = $(e.target).attr('id')
     this.getStroke().changeWidth(strokeSize)
   };
+
+  Controller.prototype.setCanvasClearClickListener = function () {
+    this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
+  }
 
   Controller.prototype.setEraserClickListener = function () {
     this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
