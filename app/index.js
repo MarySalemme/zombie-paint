@@ -27,6 +27,7 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setCanvasClearClickListener();
   controller.setEraserClickListener();
   controller.setBucketClickListener();
+  controller.setSizerClickListener();
   return controller;
 };
 
