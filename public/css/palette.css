@@ -1,9 +1,61 @@
-#palette button:nth-child(1) {
-  background-color: red
+#palette1 button:nth-child(1) {
+  background-color: black;
 }
-#palette button:nth-child(2) {
-  background-color: blue
+#palette1 button:nth-child(2) {
+  background-color: red;
 }
-#palette button:nth-child(3) {
-  background-color: green
+#palette1 button:nth-child(3) {
+  background-color: blue;
+}
+
+#palette1 button:nth-child(4) {
+  background-color: green;
+}
+
+#palette1 button:nth-child(5) {
+  background-color: Purple;
+}
+
+#palette1 button:nth-child(6) {
+  background-color: #ff9900;
+}
+
+#palette1 button:nth-child(7) {
+  background-color: yellow;
+}
+
+#palette1 button:nth-child(8) {
+  background-color: #66ff66;
+}
+
+#palette2 button:nth-child(1) {
+  background-color: #8c8c8c;
+}
+
+#palette2 button:nth-child(2) {
+  background-color: #660000;
+}
+
+#palette2 button:nth-child(3) {
+  background-color: #4da6ff;
+}
+
+#palette2 button:nth-child(4) {
+  background-color: #8cd98c;
+}
+
+#palette2 button:nth-child(5) {
+  background-color: #ff66ff;
+}
+
+#palette2 button:nth-child(6) {
+  background-color: #4d2600;
+}
+
+#palette2 button:nth-child(7) {
+  background-color: #8533ff;
+}
+
+#palette2 button:nth-child(8) {
+  background-color: white;
 }
