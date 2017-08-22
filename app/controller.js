@@ -29,6 +29,7 @@
   };
 
   Controller.prototype.setPaletteClickListener = function () {
+
     this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
   };
 
@@ -44,6 +45,15 @@
   Controller.prototype.sizePicker = function(e) {
     var strokeSize = $(e.target).attr('id')
     this.getStroke().changeWidth(strokeSize)
+    
+    Controller.prototype.setEraserClickListener = function () {
+  this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
+  };
+
+  Controller.prototype.setEraserOn = function(e) {
+    var eraserCode = $(e.target).attr('id')
+    this.getStroke().changeColour(eraserCode)
+
   };
 
   exports.Controller = Controller;

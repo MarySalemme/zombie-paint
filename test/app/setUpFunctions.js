@@ -16,6 +16,9 @@ var expect = chai.expect;
                           setSizerClickListener: () => null
                         };
 
+  mockJQuery = function() { return mockElement };
+
+
   describe('#onDomReady', function() {
     it("loads passed function on load", function() {
         onDomReady(mockWindow, mockFunction);
