@@ -4,6 +4,10 @@ body {
   background-color: #638C7E;
 }
 
+#clear {
+  margin-left: 8px;
+}
+
 #tools {
   color: #663977;
   width: 80px;
@@ -19,7 +23,12 @@ body {
   width: 10px;
 }
 
-img {
+#zombie-logo img {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+#tool-images img {
   height: 20px;
   width: 20px;
   border: 1px solid transparent;
@@ -38,10 +47,14 @@ img {
   border-radius: 5px;
 }
 
+#brush-sizes img {
+  height: 40px;
+  width: 40px;
+}
+
 #canvas {
   border: 1px solid #638C7E;
   margin-left: 86px;
-  margin-top: 6px;
   background-color: white;
 }
 
