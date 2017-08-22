@@ -52,7 +52,7 @@
   }
 
   Controller.prototype.setEraserClickListener = function () {
-    this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
+    this.$('.eraser').click(this.setEraserOn.bind(this.canvasDrawer))
   };
 
   Controller.prototype.setEraserOn = function(e) {
