@@ -26,6 +26,10 @@ Canvas.prototype.getStroke = function () {
   return this._stroke;
 };
 
+Canvas.prototype.clearCanvas = function() {
+  this.ctx.clearRect(0, 0, this.width, this.height);
+}
+
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineWidth = this.getStroke().getWidth();

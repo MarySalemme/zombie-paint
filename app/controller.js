@@ -46,15 +46,18 @@
     var strokeSize = $(e.target).attr('id')
     this.getStroke().changeWidth(strokeSize)
   };
-
-    Controller.prototype.setEraserClickListener = function () {
-  this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
+  
+  Controller.prototype.setCanvasClearClickListener = function () {
+    this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
+  }
+  
+  Controller.prototype.setEraserClickListener = function () {
+    this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
   };
 
   Controller.prototype.setEraserOn = function(e) {
     var eraserCode = $(e.target).attr('id')
     this.getStroke().changeColour(eraserCode)
-
   };
 
   exports.Controller = Controller;

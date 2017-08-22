@@ -14,6 +14,7 @@ var expect = chai.expect;
                           setCanvasMouseLeaveListener: () => "mouse leave",
                           setPaletteClickListener: () => null,
                           setSizerClickListener: () => null,
+                          setCanvasClearClickListener: () => null,
                           setEraserClickListener: () => null
                         };
 
