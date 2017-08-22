@@ -1,4 +1,3 @@
-
 describe("set up functions", function(){
 
 var expect = chai.expect;
@@ -14,12 +13,17 @@ var expect = chai.expect;
                           setCanvasMouseLeaveListener: () => "mouse leave",
                           setPaletteClickListener: () => null,
                           setSizerClickListener: () => null,
+<<<<<<< HEAD
                           setEraserClickListener: () => null,
                           setSaveClickListener: () => null
+=======
+                          setCanvasClearClickListener: () => null,
+                          setBucketClickListener: () => null,
+                          setEraserClickListener: () => null
+>>>>>>> 8710ac0fbf9772df38f3515576bc859159831b65
                         };
 
   mockJQuery = function() { return mockElement };
-
 
   describe('#onDomReady', function() {
     it("loads passed function on load", function() {

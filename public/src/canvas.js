@@ -1,4 +1,4 @@
-function Canvas(element, stroke) {
+function Canvas(element, stroke, bucket) {
   this.element = element;
   this._stroke = stroke;
   this.height = this.element.height;
@@ -6,6 +6,7 @@ function Canvas(element, stroke) {
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
   this.ctx.lineWidth = this.getStroke().getWidth();
+  this._bucket = bucket;
 };
 
 Canvas.prototype.isDrawing = function () {
@@ -30,6 +31,14 @@ Canvas.prototype.saveDrawing = function () {
   window.open(this.element.toDataURL());
 };
 
+Canvas.prototype.getBucket = function () {
+  return this._bucket;
+};
+
+Canvas.prototype.clearCanvas = function() {
+  this.ctx.clearRect(0, 0, this.width, this.height);
+}
+
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineWidth = this.getStroke().getWidth();
@@ -41,4 +50,9 @@ Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.fill();
   this.ctx.beginPath();
   this.ctx.moveTo(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop);
+};
+
+Canvas.prototype.fill = function () {
+  this.ctx.fillStyle = this.getBucket().getColour();
+  this.ctx.fillRect(0, 0, this.width, this.height);
 };
