@@ -27,6 +27,10 @@ Canvas.prototype.getStroke = function () {
   return this._stroke;
 };
 
+Canvas.prototype.getBucket = function () {
+  return this._bucket;
+};
+
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineWidth = this.getStroke().getWidth();
@@ -38,10 +42,6 @@ Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.fill();
   this.ctx.beginPath();
   this.ctx.moveTo(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop);
-};
-
-Canvas.prototype.getBucket = function () {
-  return this._bucket;
 };
 
 Canvas.prototype.fill = function () {

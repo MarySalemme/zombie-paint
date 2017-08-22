@@ -20,8 +20,6 @@ describe ('Controller', function() {
       return true;
     },
     endDrawing: chai.spy(),
-    getStroke: chai.spy(),
-    getBucket: chai.spy(),
     fill: chai.spy()
   };
 
