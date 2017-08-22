@@ -26,6 +26,10 @@ Canvas.prototype.getStroke = function () {
   return this._stroke;
 };
 
+Canvas.prototype.saveDrawing = function () {
+  window.open(this.element.toDataURL());
+};
+
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineWidth = this.getStroke().getWidth();
