@@ -22,7 +22,7 @@ describe ('Controller', function() {
     clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
     getStroke: chai.spy(),
-    saveDrawing: chai.spy()
+    saveDrawing: chai.spy(),
     fill: chai.spy()
   };
 
