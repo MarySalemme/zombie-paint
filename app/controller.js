@@ -48,6 +48,10 @@
     this.getStroke().changeWidth(strokeSize)
   };
 
+  Controller.prototype.setCanvasClearClickListener = function () {
+    this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
+  }
+
   Controller.prototype.setEraserClickListener = function () {
     this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
   };

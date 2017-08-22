@@ -19,6 +19,7 @@ describe ('Controller', function() {
     isDrawing: function() {
       return true;
     },
+    clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
     fill: chai.spy()
   };
@@ -90,6 +91,13 @@ describe ('Controller', function() {
       expect(mockElement.click).to.have.been.called();
     })
   })
+
+  describe('#setCanvasClearClickListener', function () {
+    it('binds a handler for clicking on the clear button', function () {
+      controller.setCanvasClearClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
 
   // describe('#colourPicker', function () {
   //
