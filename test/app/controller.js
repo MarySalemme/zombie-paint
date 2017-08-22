@@ -78,7 +78,7 @@ describe ('Controller', function () {
         });
     });
 
-  
+
   describe('#setSizerClickListener', function () {
     it('binds a handler for clicking on a size button', function () {
       controller.setSizerClickListener();
@@ -102,4 +102,14 @@ describe ('Controller', function () {
   // });
 
   // test for sizePicker
+
+  // describe('#spray', function() {
+  //   it('')
+  // });
+  describe('#setSprayClickListener', function() {
+    it('binds a handler for clicking on the spray button', function() {
+      controller.setSprayClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
 });
