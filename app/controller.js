@@ -29,7 +29,6 @@
   };
 
   Controller.prototype.setPaletteClickListener = function () {
-
     this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
   };
 
