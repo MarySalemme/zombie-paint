@@ -1,13 +1,11 @@
 function Stroke() {
-  this.size = 10;
+  this.width = 10;
   this.currentColour = '#000';
-  this.red = '#ff0000';
-  this.blue = '#0000ff';
-  this.green = '#008000';
 };
 
-Stroke.prototype.changeSize = function(size) {
-  this.size = size;
+Stroke.prototype.changeWidth = function(size) {
+  var sizeInteger = parseInt(size)
+  this.width = sizeInteger;
 };
 
 Stroke.prototype.changeColour = function(colour) {
@@ -16,4 +14,12 @@ Stroke.prototype.changeColour = function(colour) {
 
 Stroke.prototype.getColour = function() {
   return this.currentColour;
+};
+
+Stroke.prototype.getWidth = function() {
+  return this.width;
+};
+
+Stroke.prototype.getRadius = function() {
+  return this.width/2;
 };

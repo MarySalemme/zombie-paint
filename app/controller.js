@@ -6,7 +6,10 @@
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
-    this.$(this.htmlElement).mousedown(this.canvasDrawer.startDrawing.bind(this.canvasDrawer))
+    this.$(this.htmlElement).mousedown((function(e) {
+      this.startDrawing();
+      this.drawLine(e);
+    }).bind(this.canvasDrawer));
   };
 
   Controller.prototype.setCanvasMouseMoveListener = function () {
@@ -26,21 +29,31 @@
   };
 
   Controller.prototype.setPaletteClickListener = function () {
-  this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
+
+    this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
   };
 
   Controller.prototype.colourPicker = function(e) {
-    var colourCode = $(e.target).attr('id')
-    this.getStroke().changeColour(colourCode)
+    var colorCode = $(e.target).attr('id')
+    this.getStroke().changeColour(colorCode)
   };
 
-  Controller.prototype.setEraserClickListener = function () {
+  Controller.prototype.setSizerClickListener = function () {
+    this.$('.sizes').click(this.sizePicker.bind(this.canvasDrawer))
+  };
+
+  Controller.prototype.sizePicker = function(e) {
+    var strokeSize = $(e.target).attr('id')
+    this.getStroke().changeWidth(strokeSize)
+    
+    Controller.prototype.setEraserClickListener = function () {
   this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
   };
 
   Controller.prototype.setEraserOn = function(e) {
     var eraserCode = $(e.target).attr('id')
     this.getStroke().changeColour(eraserCode)
+
   };
 
   exports.Controller = Controller;
