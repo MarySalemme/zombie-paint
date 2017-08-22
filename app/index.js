@@ -10,9 +10,13 @@ function getStroke() {
   return new Stroke();
 }
 
-function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke())) {
+function getBucket() {
+  return new Bucket();
+};
+
+function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke(), getBucket())) {
   return canvas;
-}
+};
 
 function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setCanvasMouseDownListener();
@@ -22,11 +26,12 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setPaletteClickListener();
   controller.setCanvasClearClickListener();
   controller.setEraserClickListener();
+  controller.setBucketClickListener();
   return controller;
-}
+};
 
 function pageElementSetup(doc) {
   setUpController();
-}
+};
 
 onDomReady(jQuery, window, pageElementSetup(document));

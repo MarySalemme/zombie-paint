@@ -3,10 +3,13 @@ describe ('Canvas', function() {
   mockStroke = { getWidth: () => '20',
                  getRadius: () => '10',
                  getColour: () => '#ff0000' }
+
+  mockBucket = { getColour: () => '#ff0000' }
+
   var expect = chai.expect;
 
   canvas = document.getElementById('canvas');
-  customCanvas = new Canvas(canvas, mockStroke);
+  customCanvas = new Canvas(canvas, mockStroke, mockBucket);
   ctx = customCanvas.ctx
 
   describe ('element', function() {
@@ -42,12 +45,13 @@ describe ('Canvas', function() {
   });
 
   describe('#drawLine', function() {
+
       beforeEach(function() {
         ctx.clear();
         mockEvent = { clientX: 10, clientY: 20}
         customCanvas.drawLine(mockEvent);
         stack = JSON.parse(ctx.json());
-      })
+      });
 
     it("sets the style of the stroke", function() {
       console.log(stack)
@@ -88,6 +92,29 @@ describe ('Canvas', function() {
 
     it("restarts a new path", function() {
       expect(stack[9].method).to.equal('moveTo');
+    });
+  });
+
+  describe("#getBucket", function() {
+    it("returns the bucket", function() {
+      expect(customCanvas.getBucket()).to.equal(customCanvas._bucket);
+    });
+  });
+
+  describe('#fill', function() {
+
+    beforeEach(function() {
+      ctx.clear();
+      customCanvas.fill();
+      stack = JSON.parse(ctx.json());
+    });
+
+    it('chooses the colour that the canvas will be filled with', function() {
+      expect(stack[0].attr).to.equal('fillStyle');
+    });
+
+    it('fills the canvas with a colour', function() {
+      expect(stack[1].method).to.equal('fillRect');
     });
   });
 });

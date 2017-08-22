@@ -14,12 +14,12 @@ var expect = chai.expect;
                           setCanvasMouseLeaveListener: () => "mouse leave",
                           setPaletteClickListener: () => null,
                           setSizerClickListener: () => null,
+                          setEraserClickListener: () => null,
+                          setBucketClickListener: () => null,
                           setCanvasClearClickListener: () => null,
-                          setEraserClickListener: () => null
                         };
 
   mockJQuery = function() { return mockElement };
-
 
   describe('#onDomReady', function() {
     it("loads passed function on load", function() {

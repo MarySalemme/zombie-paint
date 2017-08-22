@@ -34,8 +34,9 @@
   };
 
   Controller.prototype.colourPicker = function(e) {
-    var colorCode = $(e.target).attr('id')
-    this.getStroke().changeColour(colorCode)
+    var colourCode = $(e.target).attr('id')
+    this.getStroke().changeColour(colourCode);
+    this.getBucket().changeColour(colourCode);
   };
 
   Controller.prototype.setSizerClickListener = function () {
@@ -46,11 +47,11 @@
     var strokeSize = $(e.target).attr('id')
     this.getStroke().changeWidth(strokeSize)
   };
-  
+
   Controller.prototype.setCanvasClearClickListener = function () {
     this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
   }
-  
+
   Controller.prototype.setEraserClickListener = function () {
     this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
   };
@@ -58,6 +59,10 @@
   Controller.prototype.setEraserOn = function(e) {
     var eraserCode = $(e.target).attr('id')
     this.getStroke().changeColour(eraserCode)
+  };
+
+  Controller.prototype.setBucketClickListener = function () {
+    this.$('#fill').click(this.canvasDrawer.fill.bind(this.canvasDrawer))
   };
 
   exports.Controller = Controller;
