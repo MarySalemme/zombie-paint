@@ -1,6 +1,8 @@
 describe ('Canvas', function() {
 
-  mockStroke = { getColour: () => '#ff0000' }
+  mockStroke = { getWidth: () => '20',
+                 getRadius: () => '10',
+                 getColour: () => '#ff0000' }
   var expect = chai.expect;
 
   canvas = document.getElementById('canvas');
@@ -47,37 +49,45 @@ describe ('Canvas', function() {
         stack = JSON.parse(ctx.json());
       })
 
+    it("sets the style of the stroke", function() {
+      console.log(stack)
+      expect(stack[0].attr).to.equal('strokeStyle');
+    });
+
     it("connects from last point to new point", function() {
-      console.log(stack);
-      expect(stack[1].method).to.equal('lineTo');
+      expect(stack[1].attr).to.equal('lineWidth');
     });
 
     it("makes the line visible", function() {
-      expect(stack[2].method).to.equal('stroke');
+      expect(stack[2].method).to.equal('lineTo');
     });
 
     it("begins the path", function() {
-      expect(stack[3].method).to.equal('beginPath');
+      expect(stack[3].method).to.equal('stroke');
     });
 
     it("creates the dot", function() {
-      expect(stack[4].method).to.equal('arc');
+      expect(stack[4].method).to.equal('beginPath');
     });
 
     it("sets style of fill", function() {
-      expect(stack[5].attr).to.equal('fillStyle');
+      expect(stack[5].method).to.equal('arc');
     });
 
     it("fills the dot", function() {
-      expect(stack[6].method).to.equal('fill');
+      expect(stack[6].attr).to.equal('fillStyle');
     });
 
     it("restarts the path", function() {
-      expect(stack[7].method).to.equal('beginPath');
+      expect(stack[7].method).to.equal('fill');
     });
 
     it("starts a new line from the dot", function() {
-      expect(stack[8].method).to.equal('moveTo');
+      expect(stack[8].method).to.equal('beginPath');
+    });
+
+    it("restarts a new path", function() {
+      expect(stack[9].method).to.equal('moveTo');
     });
   });
 });
