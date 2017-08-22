@@ -20,8 +20,8 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setCanvasMouseUpListener();
   controller.setCanvasMouseLeaveListener();
   controller.setPaletteClickListener();
-  controller.setSizerClickListener();
   controller.setCanvasClearClickListener();
+  controller.setEraserClickListener();
   return controller;
 }
 

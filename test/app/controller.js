@@ -61,6 +61,24 @@ describe ('Controller', function () {
     });
   });
 
+
+      describe('#setEraserClickListener', function () {
+
+        mockEraser = {
+          click: chai.spy(),
+        };
+
+        mockJQuery = function() { return mockEraser };
+
+        var eraserController = new Controller(mockJQuery, mockCanvas);
+
+        it('binds a handler for clicking on an eraser', function () {
+          eraserController.setEraserClickListener();
+          expect(mockEraser.click).to.have.been.called();
+        });
+    });
+
+  
   describe('#setSizerClickListener', function () {
     it('binds a handler for clicking on a size button', function () {
       controller.setSizerClickListener();
