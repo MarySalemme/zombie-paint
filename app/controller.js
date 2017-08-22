@@ -46,5 +46,9 @@
     this.getStroke().changeWidth(strokeSize)
   };
 
+  Controller.prototype.setCanvasClearClickListener = function () {
+    this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
+  };
+
   exports.Controller = Controller;
 })(this);

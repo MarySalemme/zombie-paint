@@ -19,6 +19,7 @@ describe ('Controller', function () {
     isDrawing: function() {
       return true;
     },
+    clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
     getStroke: chai.spy()
   };
@@ -63,6 +64,13 @@ describe ('Controller', function () {
   describe('#setSizerClickListener', function () {
     it('binds a handler for clicking on a size button', function () {
       controller.setSizerClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  describe('#setCanvasClearClickListener', function () {
+    it('binds a handler for clicking on the clear button', function () {
+      controller.setCanvasClearClickListener();
       expect(mockElement.click).to.have.been.called();
     });
   });

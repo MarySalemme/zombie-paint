@@ -13,7 +13,8 @@ var expect = chai.expect;
                           setCanvasMouseUpListener: () => "mouse up",
                           setCanvasMouseLeaveListener: () => "mouse leave",
                           setPaletteClickListener: () => null,
-                          setSizerClickListener: () => null
+                          setSizerClickListener: () => null,
+                          setCanvasClearClickListener: () => null
                         };
 
   describe('#onDomReady', function() {
