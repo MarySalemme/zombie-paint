@@ -6,6 +6,7 @@ function Canvas(element, stroke) {
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
   this.ctx.lineWidth = this.getStroke().getWidth();
+  canvas = this
 };
 
 Canvas.prototype.isDrawing = function () {
@@ -24,6 +25,53 @@ Canvas.prototype.endDrawing = function () {
 
 Canvas.prototype.getStroke = function () {
   return this._stroke;
+};
+
+Canvas.prototype.pickShapeToDraw = function (userShape) {
+  if (userShape == 'square') {
+    this.drawRectangle();
+  } else if (userShape == 'circle') {
+    this.drawCircle();
+  } else {
+    this.drawStar();
+  }
+};
+
+Canvas.prototype.drawRectangle = function () {
+  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+  this.ctx.beginPath();
+  this.ctx.fillStyle = this.getStroke().getColour();
+  this.ctx.rect(20,20,150,100);
+  this.ctx.closePath();
+  this.ctx.fill();
+};
+
+Canvas.prototype.drawCircle = function () {
+  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+  this.ctx.beginPath();
+  this.ctx.arc(75, 75, 75, 0, 2 * Math.PI, false);
+  this.ctx.fillStyle = this.getStroke().getColour();
+  this.ctx.fill();
+  this.ctx.closePath();
+};
+
+Canvas.prototype.drawStar = function () {
+  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+  this.ctx.save();
+  this.ctx.beginPath();
+  this.ctx.translate(100, 100)
+  this.ctx.moveTo(0,0-90);
+
+    for (var i = 0; i < 5; i++) {
+        this.ctx.rotate(Math.PI / 5);
+        this.ctx.lineTo(0, 0 - (90*0.5));
+        this.ctx.rotate(Math.PI / 5);
+        this.ctx.lineTo(0, 0 - 90);
+       }
+
+  this.ctx.fillStyle = this.getStroke().getColour();
+  this.ctx.fill();
+  this.ctx.restore();
 };
 
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {

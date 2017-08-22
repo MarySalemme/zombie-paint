@@ -3,6 +3,7 @@
     this.$ = $;
     this.canvasDrawer = canvasDrawer;
     this.htmlElement = this.canvasDrawer.element;
+    self = this
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
@@ -45,7 +46,8 @@
   Controller.prototype.sizePicker = function(e) {
     var strokeSize = $(e.target).attr('id')
     this.getStroke().changeWidth(strokeSize)
-    
+  }
+
     Controller.prototype.setEraserClickListener = function () {
   this.$('.erase').click(this.setEraserOn.bind(this.canvasDrawer))
   };
@@ -53,8 +55,22 @@
   Controller.prototype.setEraserOn = function(e) {
     var eraserCode = $(e.target).attr('id')
     this.getStroke().changeColour(eraserCode)
+  };
+
+  Controller.prototype.setShapeClickListener = function () {
+
+    this.$('#shapes').click(function(e) {
+      var shape = e.target.id
+      self.$(self.htmlElement).mousedown((function() {
+        this.pickShapeToDraw(shape);
+      }).bind(self.canvasDrawer));
+
+    });
 
   };
 
   exports.Controller = Controller;
 })(this);
+//
+// //this.pickShapeToDraw(shape);
+// }.bind(this.canvasDrawer));

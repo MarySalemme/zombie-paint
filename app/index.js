@@ -22,6 +22,7 @@ function setUpController(controller = new Controller(jQuery, buildCanvas())) {
   controller.setPaletteClickListener();
   controller.setSizerClickListener();
   controller.setEraserClickListener();
+  controller.setShapeClickListener();
   return controller;
 }
 
