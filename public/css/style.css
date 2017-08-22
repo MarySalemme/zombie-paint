@@ -6,9 +6,9 @@ body {
 
 #tools {
   color: #663977;
-  width: 6%;
+  width: 80px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   background-color: #C5D9D2;
   outline: 1px #638C7E solid;
   border-bottom: 2px solid #C5CFDF;
@@ -23,6 +23,7 @@ img {
   height: 20px;
   width: 20px;
   border: 1px solid transparent;
+  margin-top: 6px;
 }
 
 #tool-images {
@@ -38,23 +39,21 @@ img {
 }
 
 #canvas {
-  border: 1px solid black;
-  position: absolute;
-  top: 6px;
-  left: 82px;
+  border: 1px solid #638C7E;
+  margin-left: 86px;
+  margin-top: 6px;
   background-color: white;
 }
 
 #palette1 {
   position: absolute;
-  top: 412px;
-  left: 84px;
+  margin-left: 86px;
 }
 
 #palette2 {
   position: absolute;
-  top: 432px;
-  left: 84px;
+  margin-left: 86px;
+  margin-top: 20px;
 }
 
 #palette1 button:nth-child(1) {
