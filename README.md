@@ -1,6 +1,6 @@
 # Zombie Paint
 
-![Imgur](http://i.imgur.com/yUA9bl9.png)
+![Imgur](http://i.imgur.com/IEnksdw.png)
 
 ## User Stories ##
 
