@@ -64,5 +64,9 @@
     this.$('#fill').click(this.canvasDrawer.fill.bind(this.canvasDrawer))
   };
 
+  Controller.prototype.setSaveClickListener = function () {
+    this.$('.save').click(this.canvasDrawer.saveDrawing.bind(this.canvasDrawer))
+  }
+
   exports.Controller = Controller;
 })(this);

@@ -21,6 +21,8 @@ describe ('Controller', function() {
     },
     clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
+    getStroke: chai.spy(),
+    saveDrawing: chai.spy(),
     fill: chai.spy()
   };
 
@@ -84,6 +86,22 @@ describe ('Controller', function() {
       expect(mockElement.click).to.have.been.called();
     });
   });
+
+  describe('#setSaveClickListener', function () {
+
+    mockSave = {
+      click: chai.spy(),
+    };
+
+    mockJQuery = function() { return mockSave };
+
+    var saveController = new Controller(mockJQuery, mockCanvas);
+
+    it('bind a handler for clicking on a save button', function () {
+      saveController.setSaveClickListener();
+      expect(mockSave.click).to.have.been.called();
+    })
+  })
 
   describe('#setBucketClickListener', function() {
     it('binds a handler for clicking on a fill button', function() {

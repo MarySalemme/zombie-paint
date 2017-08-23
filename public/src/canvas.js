@@ -27,6 +27,10 @@ Canvas.prototype.getStroke = function () {
   return this._stroke;
 };
 
+Canvas.prototype.saveDrawing = function () {
+  window.open(this.element.toDataURL());
+};
+
 Canvas.prototype.getBucket = function () {
   return this._bucket;
 };
