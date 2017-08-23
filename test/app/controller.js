@@ -77,7 +77,7 @@ describe ('Controller', function () {
         });
     });
 
-  
+
   describe('#setSizerClickListener', function () {
     it('binds a handler for clicking on a size button', function () {
       controller.setSizerClickListener();

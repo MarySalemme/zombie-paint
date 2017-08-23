@@ -58,19 +58,19 @@
   };
 
   Controller.prototype.setShapeClickListener = function () {
-
     this.$('#shapes').click(function(e) {
-      var shape = e.target.id
-      self.$(self.htmlElement).mousedown((function() {
-        this.pickShapeToDraw(shape);
+
+      var shape = $(e.target).attr('id')
+      self.canvasDrawer._shapeSelected = true
+
+      self.$(self.htmlElement).mousedown((function(e) {
+        if (self.canvasDrawer._shapeSelected) {
+          this.pickShapeToDraw(e, shape);
+          self.canvasDrawer._shapeSelected = false
+        }
       }).bind(self.canvasDrawer));
-
     });
-
   };
 
   exports.Controller = Controller;
 })(this);
-//
-// //this.pickShapeToDraw(shape);
-// }.bind(this.canvasDrawer));

@@ -3,6 +3,7 @@ function Canvas(element, stroke) {
   this._stroke = stroke;
   this.height = this.element.height;
   this.width = this.element.width;
+  this._shapeSelected = false
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
   this.ctx.lineWidth = this.getStroke().getWidth();
@@ -27,46 +28,43 @@ Canvas.prototype.getStroke = function () {
   return this._stroke;
 };
 
-Canvas.prototype.pickShapeToDraw = function (userShape) {
+Canvas.prototype.pickShapeToDraw = function (e, userShape) {
   if (userShape == 'square') {
-    this.drawRectangle();
+    this.drawRectangle(e);
   } else if (userShape == 'circle') {
-    this.drawCircle();
+    this.drawCircle(e);
   } else {
-    this.drawStar();
+    this.drawStar(e);
   }
 };
 
-Canvas.prototype.drawRectangle = function () {
-  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+Canvas.prototype.drawRectangle = function (e, shapeSizes) {
   this.ctx.beginPath();
   this.ctx.fillStyle = this.getStroke().getColour();
-  this.ctx.rect(20,20,150,100);
+  this.ctx.rect(e.clientX -50, e.clientY -90, 100, 65);
   this.ctx.closePath();
   this.ctx.fill();
 };
 
-Canvas.prototype.drawCircle = function () {
-  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+Canvas.prototype.drawCircle = function (e) {
   this.ctx.beginPath();
-  this.ctx.arc(75, 75, 75, 0, 2 * Math.PI, false);
+  this.ctx.arc(e.clientX -10, e.clientY -15, 50, 0, 2 * Math.PI, false);
   this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.fill();
   this.ctx.closePath();
 };
 
-Canvas.prototype.drawStar = function () {
-  this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+Canvas.prototype.drawStar = function (e) {
   this.ctx.save();
   this.ctx.beginPath();
-  this.ctx.translate(100, 100)
-  this.ctx.moveTo(0,0-90);
+  this.ctx.translate(e.clientX, e.clientY)
+  this.ctx.moveTo(0,0-50);
 
     for (var i = 0; i < 5; i++) {
         this.ctx.rotate(Math.PI / 5);
-        this.ctx.lineTo(0, 0 - (90*0.5));
+        this.ctx.lineTo(0, 0 - (60*0.5));
         this.ctx.rotate(Math.PI / 5);
-        this.ctx.lineTo(0, 0 - 90);
+        this.ctx.lineTo(0, 0 - 50);
        }
 
   this.ctx.fillStyle = this.getStroke().getColour();
