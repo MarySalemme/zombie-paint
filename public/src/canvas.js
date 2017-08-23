@@ -7,7 +7,6 @@ function Canvas(element, stroke) {
   this.ctx = this.element.getContext('2d');
   this._drawing = false;
   this.ctx.lineWidth = this.getStroke().getWidth();
-  canvas = this
 };
 
 Canvas.prototype.isDrawing = function () {

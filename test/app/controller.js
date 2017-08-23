@@ -77,7 +77,6 @@ describe ('Controller', function () {
         });
     });
 
-
   describe('#setSizerClickListener', function () {
     it('binds a handler for clicking on a size button', function () {
       controller.setSizerClickListener();
@@ -85,13 +84,4 @@ describe ('Controller', function () {
     });
   });
 
-  // describe('#colourPicker', function () {
-  //   this = mockCanvas;
-  //   it('calls attr on colour button', function () {
-  //     controller.colourPicker(mockEvent);
-  //     expect(mockElement.attr).to.have.been.called();
-  //   });
-  // });
-
-  // test for sizePicker
 });
