@@ -59,7 +59,6 @@
 
   Controller.prototype.setShapeClickListener = function () {
     this.$('#shapes').click(function(e) {
-
       var shape = $(e.target).attr('id')
       self.canvasDrawer._shapeSelected = true
 
