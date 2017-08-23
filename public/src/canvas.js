@@ -52,3 +52,11 @@ Canvas.prototype.fill = function () {
   this.ctx.fillStyle = this.getBucket().getColour();
   this.ctx.fillRect(0, 0, this.width, this.height);
 };
+
+Canvas.prototype.saveDrawing = function () {
+  var drawing = this.element.toDataURL('png');
+  var link = document.createElement('a');
+  link.href = drawing;
+  link.download = 'image.png';
+  link.click()
+};
