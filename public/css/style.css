@@ -52,6 +52,17 @@ body {
   margin-left: 6px;
 }
 
+#zombie-logo img:nth-child(1) {
+  height: 90px;
+  width: 100px;
+}
+
+#zombie-logo img:nth-child(2) {
+  height: 80px;
+  width: 300px;
+  margin-left: 100px;
+}
+
 #tool-images img {
   height: 20px;
   width: 20px;
