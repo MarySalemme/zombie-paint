@@ -1,3 +1,4 @@
 /node_modules
 .DS_Store
 /canteen
+firebase-init.js
