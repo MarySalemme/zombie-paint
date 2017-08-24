@@ -101,6 +101,8 @@ describe ('Canvas', function() {
     });
   });
 
+  // tests for set shape functions
+
   describe('#fill', function() {
 
     beforeEach(function() {
