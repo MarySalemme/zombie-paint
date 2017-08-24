@@ -123,6 +123,8 @@ describe ('Controller', function() {
     it('binds a handler for clicking on the star button', function () {
       controller.setStarClickListener();
       expect(mockElement.click).to.have.been.called();
+    });
+  });
 
   describe('#setSaveClickListener', function () {
 
