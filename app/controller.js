@@ -55,6 +55,10 @@
     this.$('.eraser').click(this.setEraserOn.bind(this.canvasDrawer))
   };
 
+  Controller.prototype.setSaveClickListener = function () {
+    this.$('.save').click(this.canvasDrawer.saveDrawing.bind(this.canvasDrawer))
+  }
+
   Controller.prototype.setEraserOn = function(e) {
     var eraserCode = $(e.target).attr('id')
     this.getStroke().changeColour(eraserCode)

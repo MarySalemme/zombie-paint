@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Long Live Paint!</title>
+  <title>Zombie Paint!</title>
   <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -41,7 +41,6 @@
   </div>
 
   <canvas id='canvas' height='400' width='600'></canvas>
-
   <div id="palette1">
     <button class="colours" id='#000000'> </button>
     <button class="colours" id='#ff0000'> </button>
@@ -63,24 +62,14 @@
     <button class="colours" id='#ffffff'> </button>
   </div></br>
 
-  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBKe2alGssyiPjpGwg909sBeT7_dxsOBsc",
-      authDomain: "zombie-paint-85b09.firebaseapp.com",
-      databaseURL: "https://zombie-paint-85b09.firebaseio.com",
-      projectId: "zombie-paint-85b09",
-      storageBucket: "",
-      messagingSenderId: "1015833472921"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="firebase-init.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./src/stroke.js"></script>
-  <script src="./src/bucket.js"></script>
-  <script src="./src/canvas.js"></script>
-  <script src="../app/controller.js"></script>
-  <script src="../app/index.js"></script>
+  <script src="./public/src/stroke.js"></script>
+  <script src="./public/src/bucket.js"></script>
+  <script src="./public/src/canvas.js"></script>
+  <script src="./app/controller.js"></script>
+  <script src="./app/index.js"></script>
 </body>
 </html>
