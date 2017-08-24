@@ -19,20 +19,6 @@ function buildCanvas(canvas = new Canvas(getCanvasElement(), getStroke(), getBuc
 };
 
 function setUpController(controller = new Controller(jQuery, buildCanvas())) {
-  controller.setCanvasMouseDownListener();
-  controller.setCanvasMouseMoveListener();
-  controller.setCanvasMouseUpListener();
-  controller.setCanvasMouseLeaveListener();
-  controller.setPaletteClickListener();
-  controller.setSizerClickListener();
-  controller.setCanvasClearClickListener();
-  controller.setEraserClickListener();
-  controller.setBucketClickListener();
-  controller.setSizerClickListener();
-  controller.setRectangleClickListener();
-  controller.setCircleClickListener();
-  controller.setStarClickListener();
-  controller.setSaveClickListener();
   return controller;
 };
 
