@@ -1,6 +1,24 @@
-# Zombie Paint
-
 ![Imgur](http://i.imgur.com/USX6wW7.jpg)
+
+## How to use
+#### Production:  
+Open the [app](https://zombie-paint-902ce.firebaseapp.com/), choose a colour and have fun!
+
+#### Development:  
+* ``git clone https://github.com/MarySalemme/zombie-paint.git``   
+* ``node server.js``  
+* go [here](http://localhost:8000/)
+
+## Tech stack
+- Javascript
+- HTML5 Canvas
+- Node.js & express
+- jQuery
+- Mocha/chai
+- Canteen
+- Firebase
+- CSS
+- Photoshop
 
 ## User Stories ##
 
