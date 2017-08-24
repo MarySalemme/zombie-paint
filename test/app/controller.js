@@ -21,7 +21,13 @@ describe ('Controller', function() {
     },
     clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
-    fill: chai.spy()
+    fill: chai.spy(),
+    drawRectangle: chai.spy(),
+    drawCircle: chai.spy(),
+    drawStar: chai.spy(),
+    setRecOn: chai.spy(),
+    setCircOn: chai.spy(),
+    setStarOn: chai.spy()
   };
 
   controller = new Controller(mockJQuery, mockCanvas);
@@ -99,13 +105,24 @@ describe ('Controller', function() {
     });
   });
 
-  // describe('#colourPicker', function () {
-  //
-  //   it('calls attr on colour button', function () {
-  //     controller.colourPicker(mockEvent);
-  //     expect(mockCanvas.getStroke()).to.have.been.called();
-  //   });
-  // });
+  describe('#setRectangleClickListener', function () {
+    it('binds a handler for clicking on the rectangle button', function () {
+      controller.setRectangleClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
 
-  // test for sizePicker
+  describe('#setCircleClickListener', function () {
+    it('binds a handler for clicking on the circle button', function () {
+      controller.setCircleClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  describe('#setStarClickListener', function () {
+    it('binds a handler for clicking on the star button', function () {
+      controller.setStarClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
 });
