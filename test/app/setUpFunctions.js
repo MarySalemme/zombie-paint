@@ -17,7 +17,7 @@ var expect = chai.expect;
                           setBucketClickListener: () => null,
                           setEraserClickListener: () => null,
                           setSaveClickListener: () => null,
-                          setShapeclickListener: () => null
+                          setShapeClickListener: () => null
                         };
 
   mockJQuery = function() { return mockElement };

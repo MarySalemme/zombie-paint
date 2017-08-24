@@ -21,7 +21,8 @@ describe ('Controller', function() {
     },
     clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
-    fill: chai.spy()
+    fill: chai.spy(),
+    saveDrawing: chai.spy()
   };
 
   controller = new Controller(mockJQuery, mockCanvas);
@@ -89,8 +90,8 @@ describe ('Controller', function() {
     it('binds a handler for clicking on a fill button', function() {
       controller.setBucketClickListener();
       expect(mockElement.click).to.have.been.called();
-    })
-  })
+    });
+  });
 
   describe('#setCanvasClearClickListener', function () {
     it('binds a handler for clicking on the clear button', function () {
@@ -99,13 +100,19 @@ describe ('Controller', function() {
     });
   });
 
-  // describe('#colourPicker', function () {
-  //
-  //   it('calls attr on colour button', function () {
-  //     controller.colourPicker(mockEvent);
-  //     expect(mockCanvas.getStroke()).to.have.been.called();
-  //   });
-  // });
+  describe('#setSaveClickListener', function () {
 
-  // test for sizePicker
+    mockSave = {
+      click: chai.spy(),
+    };
+
+    mockJQuery = function() { return mockSave };
+
+    var saveController = new Controller(mockJQuery, mockCanvas);
+
+    it('bind a handler for clicking on a save button', function () {
+      saveController.setSaveClickListener();
+      expect(mockSave.click).to.have.been.called();
+    });
+  });
 });
