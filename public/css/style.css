@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #638C7E;
+}
+
+.container1 {
+  position: relative;
+  margin: 20px 0 0 10px;
+  height: 52px;
+  width: 56px;
+  border-bottom: 1px solid #A5B8D0;
+}
+
+.container2{
+  position: relative;
+  margin: 10px 0 0 -4px;
+  height: 80px;
+  width: 56px;
+  border-bottom: 1px solid #A5B8D0;
+}
+
+.container3{
+  position: relative;
+  margin: 10px 0 0 -4px;
+  height: 170px;
+  width: 56px;
+  border-bottom: 1px solid #A5B8D0;
+}
+
+#clear {
+  margin-left: 4px;
+}
+
+#save {
+  margin-left: 4px;
+}
+
+#tools {
+  color: #663977;
+  width: 80px;
+  height: 100%;
+  position: fixed;
+  background-color: #C5D9D2;
+  outline: 1px #638C7E solid;
+  border-bottom: 2px solid #C5CFDF;
+}
+
+.colours {
+  height: 16px;
+  width: 10px;
+}
+
+#zombie-logo img {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+#zombie-logo img:nth-child(1) {
+  height: 90px;
+  width: 100px;
+}
+
+#zombie-logo img:nth-child(2) {
+  height: 80px;
+  width: 300px;
+  margin-left: 100px;
+}
+
+#tool-images img {
+  height: 20px;
+  width: 20px;
+  border: 1px solid transparent;
+  margin-top: 6px;
+}
+
+#tool-images {
+  width: auto;
+  margin: 25px 10px 0 18px;
+}
+
+#tool-images img:hover, .tool-active {
+  cursor: pointer;
+  border: 1px solid #638C7E;
+  position: static;
+  border-radius: 5px;
+}
+
+#all-shapes img {
+  height: 40px;
+  width: 40px;
+}
+
+#brush-sizes img {
+  height: 40px;
+  width: 40px;
+}
+
+#canvas {
+  border: 1px solid #638C7E;
+  margin-left: 86px;
+  background-color: white;
+}
+
+#palette1 {
+  position: absolute;
+  margin-left: 87px;
+}
+
+#palette2 {
+  position: absolute;
+  margin-left: 87px;
+  margin-top: 20px;
+}
+
+#palette1 button:nth-child(1) {
+  background-color: black;
+}
+
+#palette1 button:nth-child(1):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(2) {
+  background-color: red;
+}
+
+#palette1 button:nth-child(2):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(3) {
+  background-color: blue;
+}
+
+#palette1 button:nth-child(3):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(4) {
+  background-color: green;
+}
+
+#palette1 button:nth-child(4):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(5) {
+  background-color: Purple;
+}
+
+#palette1 button:nth-child(5):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(6) {
+  background-color: #ff9900;
+}
+
+#palette1 button:nth-child(6):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(7) {
+  background-color: yellow;
+}
+
+#palette1 button:nth-child(7):hover {
+  background-color: #83FF00;
+}
+
+#palette1 button:nth-child(8) {
+  background-color: #66ff66;
+}
+
+#palette1 button:nth-child(8):hover{
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(1) {
+  background-color: #8c8c8c;
+}
+
+#palette2 button:nth-child(1):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(2) {
+  background-color: #660000;
+}
+
+#palette2 button:nth-child(2):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(3) {
+  background-color: #4da6ff;
+}
+
+#palette2 button:nth-child(3):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(4) {
+  background-color: #8cd98c;
+}
+
+#palette2 button:nth-child(4):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(5) {
+  background-color: #ff66ff;
+}
+
+#palette2 button:nth-child(5):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(6) {
+  background-color: #4d2600;
+}
+
+#palette2 button:nth-child(6):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(7) {
+  background-color: #8533ff;
+}
+
+#palette2 button:nth-child(7):hover {
+  background-color: #83FF00;
+}
+
+#palette2 button:nth-child(8) {
+  background-color: white;
+}
+
+#palette2 button:nth-child(8):hover {
+  background-color: #83FF00;
+}
