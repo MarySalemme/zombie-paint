@@ -2,20 +2,45 @@
 <head>
   <meta charset="utf-8">
   <title>Zombie Paint!</title>
-  <link href="./public/css/main.css" rel="stylesheet">
-  <link href="./public/css/palette.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-  <div id="sizer">
-    <button class="sizes" id='5'> Small</button>
-    <button class="sizes" id='10'> Medium</button>
-    <button class="sizes" id='15'> Large</button>
+  <div id="zombie-logo">
+    <img id="logo" src="images/logo/zombie-mini-logo.png"/>
+    <img id="title" src="images/logo/title.png"/>
   </div>
-  <button id="fill">Fill</button>
-  <div id="clear"> <button class="clear" id='clear'> Clear</button></div>
-  <button class="erase" id='#FFF'> Eraser </button></br>
+
+  <div id="tools">
+    <div class="container1">
+      <div id="clear"><button class="clear" id='clear'>Clear</button></div>
+      <div id="save"><button class="save" id='save'>Save</button></div>
+    </div>
+
+    <div id="tool-images">
+      <div class="container2">
+        <img id="pencil" src="images/tools/paintbrush.png"/>
+        <img class="eraser" id='#FFF' src="images/tools/eraser.png"/>
+        <img id="fill" src="images/tools/fill.png"/>
+        <img id="spray" src="images/tools/spray.png"/>
+      </div>
+      <br />
+        <div id="all-shapes">
+          <div class="container3">
+            <img class="shape" src="images/tools/rectangle.png"/>
+            <img class="shape" src="images/tools/star.png"/>
+            <img class="shape" src="images/tools/circle.png"/>
+          </div>
+      </div>
+      <br />
+      <div id="brush-sizes">
+        <img class="sizes" id="5" src="images/brush-sizes/small_brush.png"/>
+        <img class="sizes" id="10" src="images/brush-sizes/medium_brush.png"/>
+        <img class="sizes" id="15" src="images/brush-sizes/large_brush.png"/>
+      </div>
+    </div>
+  </div>
+
   <canvas id='canvas' height='400' width='600'></canvas>
-  <button class="save" id='save'> Save </button>
   <div id="palette1">
     <button class="colours" id='#000000'> </button>
     <button class="colours" id='#ff0000'> </button>
