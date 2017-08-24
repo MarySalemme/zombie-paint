@@ -1,6 +1,6 @@
 # Zombie Paint
 
-![Imgur](http://i.imgur.com/IEnksdw.png)
+![Imgur](http://i.imgur.com/USX6wW7.jpg)
 
 ## User Stories ##
 
@@ -36,4 +36,8 @@ I want to be able to change the size of my brush.
 As a user,
 So that I can have a different coloured background,
 I want to be able to fill the canvas with a different colour.
+
+As a user,
+So that I can keep my masterpieces,
+I want to be able to save my work.
 ```
