@@ -22,6 +22,12 @@ describe ('Controller', function() {
     clearCanvas: chai.spy(),
     endDrawing: chai.spy(),
     fill: chai.spy(),
+    drawRectangle: chai.spy(),
+    drawCircle: chai.spy(),
+    drawStar: chai.spy(),
+    setRecOn: chai.spy(),
+    setCircOn: chai.spy(),
+    setStarOn: chai.spy(),
     saveDrawing: chai.spy()
   };
 
@@ -62,7 +68,6 @@ describe ('Controller', function() {
     });
   });
 
-
   describe('#setEraserClickListener', function() {
 
     mockEraser = {
@@ -96,6 +101,27 @@ describe ('Controller', function() {
   describe('#setCanvasClearClickListener', function () {
     it('binds a handler for clicking on the clear button', function () {
       controller.setCanvasClearClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  describe('#setRectangleClickListener', function () {
+    it('binds a handler for clicking on the rectangle button', function () {
+      controller.setRectangleClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  describe('#setCircleClickListener', function () {
+    it('binds a handler for clicking on the circle button', function () {
+      controller.setCircleClickListener();
+      expect(mockElement.click).to.have.been.called();
+    });
+  });
+
+  describe('#setStarClickListener', function () {
+    it('binds a handler for clicking on the star button', function () {
+      controller.setStarClickListener();
       expect(mockElement.click).to.have.been.called();
     });
   });

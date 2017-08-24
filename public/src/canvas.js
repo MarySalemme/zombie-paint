@@ -7,7 +7,9 @@ function Canvas(element, stroke, bucket) {
   this._drawing = false;
   this.ctx.lineWidth = this.getStroke().getWidth();
   this._bucket = bucket;
-  this._shapeSelected = false
+  this._rec = false
+  this._circ = false
+  this._star = false
 };
 
 Canvas.prototype.isDrawing = function () {
@@ -16,7 +18,6 @@ Canvas.prototype.isDrawing = function () {
 
 Canvas.prototype.startDrawing = function () {
   this._drawing = true;
-  console.log(this._drawing);
 };
 
 Canvas.prototype.endDrawing = function () {
@@ -34,6 +35,33 @@ Canvas.prototype.getBucket = function () {
 
 Canvas.prototype.clearCanvas = function() {
   this.ctx.clearRect(0, 0, this.width, this.height);
+}
+
+Canvas.prototype.setRecOn = function () {
+  this._rec = true
+  this._drawing = false
+}
+
+Canvas.prototype.setRecOff = function () {
+  this._rec = false;
+}
+
+Canvas.prototype.setCircOn = function () {
+  this._circ = true
+  this._drawing = false
+}
+
+Canvas.prototype.setCircOff = function () {
+  this._circ = false
+}
+
+Canvas.prototype.setStarOn = function () {
+  this._star = true
+  this._drawing = false
+}
+
+Canvas.prototype.setStarOff = function () {
+  this._star = false
 }
 
 Canvas.prototype.pickShapeToDraw = function (e, userShape) {
@@ -60,7 +88,7 @@ Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.moveTo(e.pageX - this.element.offsetLeft, e.pageY - this.element.offsetTop);
 };
 
-Canvas.prototype.drawRectangle = function (e, shapeSizes) {
+Canvas.prototype.drawRectangle = function (e) {
   this.ctx.beginPath();
   this.ctx.fillStyle = this.getStroke().getColour();
   this.ctx.rect(e.clientX -160, e.clientY -125, 100, 65);
