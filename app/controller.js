@@ -3,6 +3,7 @@
     this.$ = $;
     this.canvasDrawer = canvasDrawer;
     this.htmlElement = this.canvasDrawer.element;
+    self = this
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
@@ -66,6 +67,20 @@
 
   Controller.prototype.setBucketClickListener = function () {
     this.$('#fill').click(this.canvasDrawer.fill.bind(this.canvasDrawer))
+  };
+
+  Controller.prototype.setShapeClickListener = function () {
+    this.$('.shape').click(function(e) {
+      var shape = $(e.target).attr('id')
+      self.canvasDrawer._shapeSelected = true
+
+      self.$(self.htmlElement).mousedown((function(e) {
+        if (self.canvasDrawer._shapeSelected) {
+          this.pickShapeToDraw(e, shape);
+          self.canvasDrawer._shapeSelected = false
+        }
+      }).bind(self.canvasDrawer));
+    });
   };
 
   exports.Controller = Controller;
