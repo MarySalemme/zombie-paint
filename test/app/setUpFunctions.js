@@ -17,7 +17,6 @@ var expect = chai.expect;
                           setBucketClickListener: () => null,
                           setEraserClickListener: () => null,
                           setSaveClickListener: () => null,
-                          setShapeclickListener: () => null,
                           setRectangleClickListener: () => null,
                           setCircleClickListener: () => null,
                           setStarClickListener: () => null

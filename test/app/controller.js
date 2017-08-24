@@ -27,7 +27,8 @@ describe ('Controller', function() {
     drawStar: chai.spy(),
     setRecOn: chai.spy(),
     setCircOn: chai.spy(),
-    setStarOn: chai.spy()
+    setStarOn: chai.spy(),
+    saveDrawing: chai.spy()
   };
 
   controller = new Controller(mockJQuery, mockCanvas);
@@ -67,7 +68,6 @@ describe ('Controller', function() {
     });
   });
 
-
   describe('#setEraserClickListener', function() {
 
     mockEraser = {
@@ -95,8 +95,8 @@ describe ('Controller', function() {
     it('binds a handler for clicking on a fill button', function() {
       controller.setBucketClickListener();
       expect(mockElement.click).to.have.been.called();
-    })
-  })
+    });
+  });
 
   describe('#setCanvasClearClickListener', function () {
     it('binds a handler for clicking on the clear button', function () {
@@ -123,6 +123,20 @@ describe ('Controller', function() {
     it('binds a handler for clicking on the star button', function () {
       controller.setStarClickListener();
       expect(mockElement.click).to.have.been.called();
+
+  describe('#setSaveClickListener', function () {
+
+    mockSave = {
+      click: chai.spy(),
+    };
+
+    mockJQuery = function() { return mockSave };
+
+    var saveController = new Controller(mockJQuery, mockCanvas);
+
+    it('bind a handler for clicking on a save button', function () {
+      saveController.setSaveClickListener();
+      expect(mockSave.click).to.have.been.called();
     });
   });
 });
