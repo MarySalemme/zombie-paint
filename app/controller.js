@@ -69,19 +69,35 @@
     this.$('#fill').click(this.canvasDrawer.fill.bind(this.canvasDrawer))
   };
 
-  Controller.prototype.setShapeClickListener = function () {
-    this.$('.shape').click(function(e) {
-      var shape = $(e.target).attr('id')
-      self.canvasDrawer._shapeSelected = true
-
-      self.$(self.htmlElement).mousedown((function(e) {
-        if (self.canvasDrawer._shapeSelected) {
-          this.pickShapeToDraw(e, shape);
-          self.canvasDrawer._shapeSelected = false
+  Controller.prototype.setRectangleClickListener = function () {
+    this.$('.rectangle').click(this.canvasDrawer.setRecOn.bind(this.canvasDrawer))
+      this.$(this.htmlElement).mousedown(function(e) {
+        if (self.canvasDrawer._rec) {
+          self.canvasDrawer.drawRectangle(e);
+          self.canvasDrawer.setRecOff();
         }
-      }).bind(self.canvasDrawer));
-    });
-  };
+      });
+  }
+
+  Controller.prototype.setCircleClickListener = function () {
+    this.$('.circle').click(this.canvasDrawer.setCircOn.bind(this.canvasDrawer))
+      this.$(this.htmlElement).mousedown(function(e) {
+        if (self.canvasDrawer._circ) {
+          self.canvasDrawer.drawCircle(e);
+          self.canvasDrawer.setCircOff();
+        }
+      });
+  }
+
+    Controller.prototype.setStarClickListener = function () {
+    this.$('.star').click(this.canvasDrawer.setStarOn.bind(this.canvasDrawer))
+      this.$(this.htmlElement).mousedown(function(e) {
+        if (self.canvasDrawer._star) {
+          self.canvasDrawer.drawStar(e);
+          self.canvasDrawer.setStarOff();
+        }
+      });
+  }
 
   exports.Controller = Controller;
 })(this);
