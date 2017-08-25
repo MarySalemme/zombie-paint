@@ -3,6 +3,8 @@
     this.$ = $;
     this._canvasDrawer = canvasDrawer;
     this._htmlElement = this._canvasDrawer.element;
+    this.setUpCanvasListeners();
+    this.setUpToolListeners();
     self = this
   };
 
@@ -98,6 +100,26 @@
         }
       });
   }
+
+  Controller.prototype.setUpCanvasListeners = function () {
+    this.setCanvasMouseDownListener();
+    this.setCanvasMouseMoveListener();
+    this.setCanvasMouseUpListener();
+    this.setCanvasMouseLeaveListener();
+    this.setCanvasClearClickListener();
+  };
+
+  Controller.prototype.setUpToolListeners = function () {
+    this.setPaletteClickListener();
+    this.setSizerClickListener();
+    this.setEraserClickListener();
+    this.setBucketClickListener();
+    this.setSizerClickListener();
+    this.setRectangleClickListener();
+    this.setCircleClickListener();
+    this.setStarClickListener();
+    this.setSaveClickListener();
+  };
 
   exports.Controller = Controller;
 })(this);
