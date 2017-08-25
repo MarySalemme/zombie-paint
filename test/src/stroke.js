@@ -6,13 +6,13 @@ describe('Stroke', function() {
 
   describe('size', function() {
     it("starts with a default size of 10 px", function () {
-      expect(stroke.width).to.equal(10);
+      expect(stroke._width).to.equal(10);
     });
   });
 
   describe('currentColour', function() {
     it("starts with a default value of '000'", function () {
-      expect(stroke.currentColour).to.equal('#000');
+      expect(stroke._currentColour).to.equal('#000');
     });
   });
 
@@ -20,14 +20,14 @@ describe('Stroke', function() {
   describe('#changeSize', function() {
     it("increases or decreases the size of the stroke", function () {
       stroke.changeWidth(20);
-      expect(stroke.width).to.equal(20);
+      expect(stroke._width).to.equal(20);
     });
   });
 
   describe('#changeColour', function() {
     it("changes the stroke colour", function() {
       stroke.changeColour('#00FF00');
-      expect(stroke.currentColour).to.equal('#00FF00');
+      expect(stroke._currentColour).to.equal('#00FF00');
     });
   });
 

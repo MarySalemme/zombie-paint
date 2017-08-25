@@ -64,17 +64,6 @@ Canvas.prototype.setStarOff = function () {
   this._star = false
 }
 
-Canvas.prototype.pickShapeToDraw = function (e, userShape) {
-  console.log(userShape)
-  if (userShape == 'rectangle') {
-    this.drawRectangle(e);
-  } else if (userShape == 'circle') {
-    this.drawCircle(e);
-  } else {
-    this.drawStar(e);
-  }
-};
-
 Canvas.prototype.drawLine = function (e, radius = this._stroke.getRadius()) {
   this.ctx.strokeStyle = this.getStroke().getColour();
   this.ctx.lineWidth = this.getStroke().getWidth();

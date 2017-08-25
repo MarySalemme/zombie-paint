@@ -1,38 +1,38 @@
 (function(exports) {
   function Controller($, canvasDrawer = canvas) {
     this.$ = $;
-    this.canvasDrawer = canvasDrawer;
-    this.htmlElement = this.canvasDrawer.element;
+    this._canvasDrawer = canvasDrawer;
+    this._htmlElement = this._canvasDrawer.element;
     this.setUpCanvasListeners();
     this.setUpToolListeners();
     self = this
   };
 
   Controller.prototype.setCanvasMouseDownListener = function () {
-    this.$(this.htmlElement).mousedown((function(e) {
+    this.$(this._htmlElement).mousedown((function(e) {
       this.startDrawing();
       this.drawLine(e);
-    }).bind(this.canvasDrawer));
+    }).bind(this._canvasDrawer));
   };
 
   Controller.prototype.setCanvasMouseMoveListener = function () {
-    this.$(this.htmlElement).mousemove((function(e) {
+    this.$(this._htmlElement).mousemove((function(e) {
       if (this.isDrawing()) {
         this.drawLine(e)
       }
-    }).bind(this.canvasDrawer))
+    }).bind(this._canvasDrawer))
   };
 
   Controller.prototype.setCanvasMouseUpListener = function () {
-    this.$(this.htmlElement).mouseup(this.canvasDrawer.endDrawing.bind(this.canvasDrawer))
+    this.$(this._htmlElement).mouseup(this._canvasDrawer.endDrawing.bind(this._canvasDrawer))
   };
 
   Controller.prototype.setCanvasMouseLeaveListener = function () {
-    this.$(this.htmlElement).mouseleave(this.canvasDrawer.endDrawing.bind(this.canvasDrawer))
+    this.$(this._htmlElement).mouseleave(this._canvasDrawer.endDrawing.bind(this._canvasDrawer))
   };
 
   Controller.prototype.setPaletteClickListener = function () {
-    this.$('.colours').click(this.colourPicker.bind(this.canvasDrawer))
+    this.$('.colours').click(this.colourPicker.bind(this._canvasDrawer))
   };
 
   Controller.prototype.colourPicker = function(e) {
@@ -42,7 +42,7 @@
   };
 
   Controller.prototype.setSizerClickListener = function () {
-    this.$('.sizes').click(this.sizePicker.bind(this.canvasDrawer))
+    this.$('.sizes').click(this.sizePicker.bind(this._canvasDrawer))
   };
 
   Controller.prototype.sizePicker = function(e) {
@@ -51,15 +51,15 @@
   };
 
   Controller.prototype.setCanvasClearClickListener = function () {
-    this.$('.clear').click(this.canvasDrawer.clearCanvas.bind(this.canvasDrawer))
+    this.$('.clear').click(this._canvasDrawer.clearCanvas.bind(this._canvasDrawer))
   }
 
   Controller.prototype.setEraserClickListener = function () {
-    this.$('.eraser').click(this.setEraserOn.bind(this.canvasDrawer))
+    this.$('.eraser').click(this.setEraserOn.bind(this._canvasDrawer))
   };
 
   Controller.prototype.setSaveClickListener = function () {
-    this.$('.save').click(this.canvasDrawer.saveDrawing.bind(this.canvasDrawer))
+    this.$('.save').click(this._canvasDrawer.saveDrawing.bind(this._canvasDrawer))
   }
 
   Controller.prototype.setEraserOn = function(e) {
@@ -68,35 +68,35 @@
   };
 
   Controller.prototype.setBucketClickListener = function () {
-    this.$('#fill').click(this.canvasDrawer.fill.bind(this.canvasDrawer))
+    this.$('#fill').click(this._canvasDrawer.fill.bind(this._canvasDrawer))
   };
 
   Controller.prototype.setRectangleClickListener = function () {
-    this.$('.rectangle').click(this.canvasDrawer.setRecOn.bind(this.canvasDrawer))
-      this.$(this.htmlElement).mousedown(function(e) {
-        if (self.canvasDrawer._rec) {
-          self.canvasDrawer.drawRectangle(e);
-          self.canvasDrawer.setRecOff();
+    this.$('.rectangle').click(this._canvasDrawer.setRecOn.bind(this._canvasDrawer))
+      this.$(this._htmlElement).mousedown(function(e) {
+        if (self._canvasDrawer._rec) {
+          self._canvasDrawer.drawRectangle(e);
+          self._canvasDrawer.setRecOff();
         }
       });
   }
 
   Controller.prototype.setCircleClickListener = function () {
-    this.$('.circle').click(this.canvasDrawer.setCircOn.bind(this.canvasDrawer))
-      this.$(this.htmlElement).mousedown(function(e) {
-        if (self.canvasDrawer._circ) {
-          self.canvasDrawer.drawCircle(e);
-          self.canvasDrawer.setCircOff();
+    this.$('.circle').click(this._canvasDrawer.setCircOn.bind(this._canvasDrawer))
+      this.$(this._htmlElement).mousedown(function(e) {
+        if (self._canvasDrawer._circ) {
+          self._canvasDrawer.drawCircle(e);
+          self._canvasDrawer.setCircOff();
         }
       });
   }
 
     Controller.prototype.setStarClickListener = function () {
-    this.$('.star').click(this.canvasDrawer.setStarOn.bind(this.canvasDrawer))
-      this.$(this.htmlElement).mousedown(function(e) {
-        if (self.canvasDrawer._star) {
-          self.canvasDrawer.drawStar(e);
-          self.canvasDrawer.setStarOff();
+    this.$('.star').click(this._canvasDrawer.setStarOn.bind(this._canvasDrawer))
+      this.$(this._htmlElement).mousedown(function(e) {
+        if (self._canvasDrawer._star) {
+          self._canvasDrawer.drawStar(e);
+          self._canvasDrawer.setStarOff();
         }
       });
   }

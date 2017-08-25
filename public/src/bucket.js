@@ -1,11 +1,11 @@
 function Bucket() {
-  this.currentColour = '#000'
+  this._currentColour = '#000'
 };
 
 Bucket.prototype.changeColour = function (colour) {
-  this.currentColour = colour
+  this._currentColour = colour
 };
 
 Bucket.prototype.getColour = function () {
-  return this.currentColour;
+  return this._currentColour;
 };
